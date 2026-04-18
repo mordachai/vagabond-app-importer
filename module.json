@@ -1,15 +1,19 @@
 {
   "id": "vgbnd-importer",
-  "title": "Vagabond Character Importer",
-  "description": "Import characters from Vagabond (vgbnd.app) directly into Foundry VTT.",
+  "title": "Vagabond App Importer",
+  "description": "<p>Imports characters from vgbnd.app directly into Foundry VTT as Vagabond system actors.</p>",
   "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Gus",
+      "discord": "gus4294",
+      "flags": {}
+    }
+  ],
   "compatibility": {
     "minimum": "13",
     "verified": "13"
   },
-  "authors": [
-    { "name": "Your Name Here" }
-  ],
   "esmodules": ["scripts/main.mjs"],
   "styles": ["styles/vgbnd-importer.css"],
   "languages": [
@@ -19,5 +23,8 @@
       "path": "lang/en.json"
     }
   ],
+  "url": "https://github.com/mordachai/vagabond-app-importer",
+  "manifest": "https://github.com/mordachai/vagabond-app-importer/releases/latest/download/module.json",
+  "download": "https://github.com/mordachai/vagabond-app-importer/releases/latest/download/module.zip",
   "flags": {}
 }
