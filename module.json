@@ -1,0 +1,23 @@
+{
+  "id": "vgbnd-importer",
+  "title": "Vagabond Character Importer",
+  "description": "Import characters from Vagabond (vgbnd.app) directly into Foundry VTT.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    { "name": "Your Name Here" }
+  ],
+  "esmodules": ["scripts/main.mjs"],
+  "styles": ["styles/vgbnd-importer.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "flags": {}
+}

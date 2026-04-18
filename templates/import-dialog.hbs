@@ -1,0 +1,35 @@
+<div class="vgbnd-import-dialog">
+  <div class="form-group">
+    <label for="vgbnd-uuid-input">{{localize "VGBND.UUIDLabel"}}</label>
+    <div class="vgbnd-uuid-row">
+      <input
+        id="vgbnd-uuid-input"
+        type="text"
+        placeholder="{{localize "VGBND.UUIDPlaceholder"}}"
+        autofocus
+      />
+      <button type="button" data-action="openUrl" title="{{localize "VGBND.OpenUrlTitle"}}">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </button>
+    </div>
+    <span class="hint">{{localize "VGBND.UUIDHint"}}</span>
+  </div>
+
+  <div class="form-group">
+    <label for="vgbnd-json-input">{{localize "VGBND.JSONLabel"}}</label>
+    <textarea
+      id="vgbnd-json-input"
+      rows="6"
+      placeholder="{{localize "VGBND.JSONPlaceholder"}}"
+    ></textarea>
+  </div>
+
+  <p class="vgbnd-status"></p>
+
+  <div class="form-footer">
+    <button type="button" data-action="import">
+      <i class="fa-solid fa-cloud-arrow-down"></i>
+      {{localize "VGBND.ImportButton"}}
+    </button>
+  </div>
+</div>

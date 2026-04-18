@@ -1,0 +1,106 @@
+import { VgbndMapper } from "./mapper.mjs";
+
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
+export class VgbndUnresolvedDialog extends HandlebarsApplicationMixin(ApplicationV2) {
+  #actor;
+  #items; // [{ name, type }]
+
+  constructor(actor, items, options = {}) {
+    super(options);
+    this.#actor = actor;
+    this.#items = items;
+  }
+
+  static DEFAULT_OPTIONS = {
+    id: "vgbnd-unresolved-dialog",
+    tag: "div",
+    classes: ["vgbnd-unresolved-dialog"],
+    window: {
+      title: "VGBND.UnresolvedTitle",
+      icon: "fa-solid fa-triangle-exclamation",
+      resizable: true,
+    },
+    position: { width: 540, height: 480 },
+    actions: {
+      search: VgbndUnresolvedDialog.#onSearch,
+      add:    VgbndUnresolvedDialog.#onAdd,
+      create: VgbndUnresolvedDialog.#onCreate,
+    },
+  };
+
+  static PARTS = {
+    form: { template: "modules/vgbnd-importer/templates/unresolved-dialog.hbs" },
+  };
+
+  async _prepareContext() {
+    return { items: this.#items };
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  Actions
+  // ──────────────────────────────────────────────────────────
+
+  static async #onSearch(_event, target) {
+    const index     = target.dataset.index;
+    const itemEl    = this.element.querySelector(`.vgbnd-unresolved-item[data-index="${index}"]`);
+    const query     = itemEl.querySelector(".vgbnd-search-input").value;
+    const type      = itemEl.dataset.type;
+    const resultsEl = itemEl.querySelector(".vgbnd-results");
+
+    resultsEl.innerHTML = `<li class="vgbnd-status-row"><i class="fa-solid fa-spinner fa-spin"></i> ${game.i18n.localize("VGBND.Searching")}</li>`;
+
+    const results = await VgbndMapper.searchByName(query, type);
+
+    if (!results.length) {
+      resultsEl.innerHTML = `<li class="vgbnd-status-row vgbnd-none">${game.i18n.localize("VGBND.NoResults")}</li>`;
+      return;
+    }
+
+    resultsEl.innerHTML = results.map(r => `
+      <li class="vgbnd-result-item">
+        <span class="vgbnd-result-name">${r.name}</span>
+        <span class="vgbnd-result-pack">${r.packLabel}</span>
+        <button type="button" data-action="add"
+                data-pack="${r.packId}" data-doc-id="${r.id}" data-item-index="${index}">
+          <i class="fa-solid fa-plus"></i> ${game.i18n.localize("VGBND.AddToActor")}
+        </button>
+      </li>
+    `).join("");
+  }
+
+  static async #onAdd(_event, target) {
+    const packId    = target.dataset.pack;
+    const docId     = target.dataset.docId;
+    const itemIndex = target.dataset.itemIndex;
+
+    const pack = game.packs.get(packId);
+    if (!pack) return;
+    const doc = await pack.getDocument(docId);
+    if (!doc) return;
+
+    await this.#actor.createEmbeddedDocuments("Item", [doc.toObject()]);
+    ui.notifications.info(game.i18n.format("VGBND.AddedItem", { name: doc.name }));
+
+    this.#markResolved(itemIndex, doc.name);
+  }
+
+  static async #onCreate(_event, target) {
+    const { name, type, index } = target.dataset;
+    await this.#actor.createEmbeddedDocuments("Item", [{ name, type }]);
+    ui.notifications.info(game.i18n.format("VGBND.CreatedItem", { name }));
+    this.#markResolved(index, name);
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  Helpers
+  // ──────────────────────────────────────────────────────────
+
+  #markResolved(index, name) {
+    const itemEl = this.element.querySelector(`.vgbnd-unresolved-item[data-index="${index}"]`);
+    if (!itemEl) return;
+    itemEl.classList.add("vgbnd-resolved");
+    itemEl.querySelector(".vgbnd-results").innerHTML =
+      `<li class="vgbnd-status-row vgbnd-done"><i class="fa-solid fa-check"></i> ${name} ${game.i18n.localize("VGBND.Added")}</li>`;
+  }
+}

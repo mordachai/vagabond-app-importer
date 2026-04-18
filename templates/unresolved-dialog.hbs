@@ -1,0 +1,25 @@
+<div class="vgbnd-unresolved-dialog">
+  <p class="vgbnd-intro">{{localize "VGBND.UnresolvedSearch"}}</p>
+
+  <ul class="vgbnd-unresolved-list">
+    {{#each items}}
+    <li class="vgbnd-unresolved-item" data-index="{{@index}}" data-type="{{this.type}}">
+      <div class="vgbnd-item-header">
+        <span class="vgbnd-item-name">{{this.name}}</span>
+        <span class="vgbnd-item-type">{{this.type}}</span>
+        <button type="button" class="vgbnd-create-btn" data-action="create"
+                data-index="{{@index}}" data-name="{{this.name}}" data-type="{{this.type}}">
+          <i class="fa-solid fa-file-plus"></i> {{localize "VGBND.CreateBlank"}}
+        </button>
+      </div>
+      <div class="vgbnd-search-row">
+        <input class="vgbnd-search-input" type="text" value="{{this.name}}" />
+        <button type="button" data-action="search" data-index="{{@index}}">
+          <i class="fa-solid fa-magnifying-glass"></i> {{localize "VGBND.Search"}}
+        </button>
+      </div>
+      <ul class="vgbnd-results"></ul>
+    </li>
+    {{/each}}
+  </ul>
+</div>
