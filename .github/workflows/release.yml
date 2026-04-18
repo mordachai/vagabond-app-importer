@@ -57,6 +57,15 @@ jobs:
           echo "title=$TITLE" >> $GITHUB_OUTPUT
           echo "Preparing release for $TITLE v$VERSION"
 
+      - name: Set versioned download URL in module.json
+        run: |
+          VERSION=${{ steps.module-info.outputs.version }}
+          REPO=${{ github.repository }}
+          DOWNLOAD_URL="https://github.com/${REPO}/releases/download/v${VERSION}/module.zip"
+          jq --arg url "$DOWNLOAD_URL" '.download = $url' module.json > module.tmp.json
+          mv module.tmp.json module.json
+          echo "Download URL set to: $DOWNLOAD_URL"
+
       - name: Create module.zip
         run: |
           zip -r module.zip \
