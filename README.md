@@ -4,7 +4,7 @@
 
 # Vagabond App Importer
 
-Imports characters from [vgbnd.app](https://www.vgbnd.app) directly into Foundry VTT as Vagabond system actors.
+Imports characters from **Vagabond Tag Along** (https://www.vgbnd.app) directly into Foundry VTT as Vagabond system actors.
 
 **Requirements:**
 
@@ -32,7 +32,6 @@ The module tries a direct fetch first. If the browser blocks it (CORS), the dial
 - Stats, health, mana, skills, saves, currency
 - All items resolved from the Vagabond compendiums (ancestry, class, perks, equipment)
 - Weapons and armor are auto-equipped
-- Portrait and token image (falls back to the default mystery-man if none is set)
 
 Items that don't match any compendium entry exactly open a **resolution dialog** where you can search by partial name and add the correct item, or create a blank one to fill in manually.
 
@@ -53,6 +52,12 @@ Search for **"vagabond app importer"** in Foundry's module browser, or use the m
 ```
 https://github.com/mordachai/vagabond-app-importer/releases/latest/download/module.json
 ```
+
+---
+
+## Acknowledgment
+
+This module exists because of **lzrface** (Discord: `lzrface8855`), who built [Vagabond Tag Along](https://www.vgbnd.app/) — the companion app that manages your Vagabond characters and exposes the API this importer talks to. Without his work there would be nothing to import. Go check out the app.
 
 ---
 
