@@ -50,7 +50,7 @@ If the character's class or ancestry is marked as a spellcaster, you'll be promp
 Search for **"vagabond app importer"** in Foundry's module browser, or use the manifest URL:
 
 ```
-https://github.com/mordachai/vagabond-app-importer/releases/latest/download/module.json
+https://raw.githubusercontent.com/mordachai/vagabond-app-importer/main/module.json
 ```
 
 ---
