@@ -1,9 +1,10 @@
 import { VgbndImportDialog } from "./import-dialog.mjs";
 import { VgbndUnresolvedDialog } from "./unresolved-dialog.mjs";
+import { VgbndSpellDialog } from "./spell-dialog.mjs";
 import { VgbndMapper } from "./mapper.mjs";
 
 // Re-export for external use / debugging
-export { VgbndImportDialog, VgbndUnresolvedDialog, VgbndMapper };
+export { VgbndImportDialog, VgbndUnresolvedDialog, VgbndSpellDialog, VgbndMapper };
 
 Hooks.once("init", () => {
   console.log("vgbnd-importer | Initialised");

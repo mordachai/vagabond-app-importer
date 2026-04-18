@@ -37,16 +37,51 @@ export class VgbndUnresolvedDialog extends HandlebarsApplicationMixin(Applicatio
     return { items: this.#items };
   }
 
+  // Auto-search all items once the dialog is in the DOM
+  _onFirstRender(context, options) {
+    const itemEls = this.element.querySelectorAll(".vgbnd-unresolved-item");
+    for (const el of itemEls) this.#runSearch(el);
+  }
+
   // ──────────────────────────────────────────────────────────
   //  Actions
   // ──────────────────────────────────────────────────────────
 
   static async #onSearch(_event, target) {
-    const index     = target.dataset.index;
-    const itemEl    = this.element.querySelector(`.vgbnd-unresolved-item[data-index="${index}"]`);
+    const index  = target.dataset.index;
+    const itemEl = this.element.querySelector(`.vgbnd-unresolved-item[data-index="${index}"]`);
+    await this.#runSearch(itemEl);
+  }
+
+  static async #onAdd(_event, target) {
+    const packId    = target.dataset.pack;
+    const docId     = target.dataset.docId;
+    const itemIndex = target.dataset.itemIndex;
+
+    const pack = game.packs.get(packId);
+    if (!pack) return;
+    const doc = await pack.getDocument(docId);
+    if (!doc) return;
+
+    await this.#actor.createEmbeddedDocuments("Item", [doc.toObject()]);
+    this.#markResolved(itemIndex, doc.name);
+  }
+
+  static async #onCreate(_event, target) {
+    const { name, type, index } = target.dataset;
+    await this.#actor.createEmbeddedDocuments("Item", [{ name, type }]);
+    this.#markResolved(index, name);
+  }
+
+  // ──────────────────────────────────────────────────────────
+  //  Helpers
+  // ──────────────────────────────────────────────────────────
+
+  async #runSearch(itemEl) {
     const query     = itemEl.querySelector(".vgbnd-search-input").value;
     const type      = itemEl.dataset.type;
     const resultsEl = itemEl.querySelector(".vgbnd-results");
+    const index     = itemEl.dataset.index;
 
     resultsEl.innerHTML = `<li class="vgbnd-status-row"><i class="fa-solid fa-spinner fa-spin"></i> ${game.i18n.localize("VGBND.Searching")}</li>`;
 
@@ -68,33 +103,6 @@ export class VgbndUnresolvedDialog extends HandlebarsApplicationMixin(Applicatio
       </li>
     `).join("");
   }
-
-  static async #onAdd(_event, target) {
-    const packId    = target.dataset.pack;
-    const docId     = target.dataset.docId;
-    const itemIndex = target.dataset.itemIndex;
-
-    const pack = game.packs.get(packId);
-    if (!pack) return;
-    const doc = await pack.getDocument(docId);
-    if (!doc) return;
-
-    await this.#actor.createEmbeddedDocuments("Item", [doc.toObject()]);
-    ui.notifications.info(game.i18n.format("VGBND.AddedItem", { name: doc.name }));
-
-    this.#markResolved(itemIndex, doc.name);
-  }
-
-  static async #onCreate(_event, target) {
-    const { name, type, index } = target.dataset;
-    await this.#actor.createEmbeddedDocuments("Item", [{ name, type }]);
-    ui.notifications.info(game.i18n.format("VGBND.CreatedItem", { name }));
-    this.#markResolved(index, name);
-  }
-
-  // ──────────────────────────────────────────────────────────
-  //  Helpers
-  // ──────────────────────────────────────────────────────────
 
   #markResolved(index, name) {
     const itemEl = this.element.querySelector(`.vgbnd-unresolved-item[data-index="${index}"]`);

@@ -1,0 +1,39 @@
+<div class="vgbnd-spell-dialog">
+  <div class="vgbnd-spell-header">
+    <p class="vgbnd-spell-note">{{localize "VGBND.SpellNote"}}</p>
+    {{#if spellCount}}
+    <span class="vgbnd-spell-counter {{#if counterDone}}vgbnd-counter-done{{/if}}">
+      {{added}} / {{spellCount}}
+    </span>
+    {{/if}}
+  </div>
+
+  {{#if missing}}
+    <p class="vgbnd-spell-missing">{{localize "VGBND.SpellPackMissing"}}</p>
+  {{else}}
+    <input class="vgbnd-spell-search" type="text" placeholder="{{localize "VGBND.SpellSearch"}}" />
+
+    <ul class="vgbnd-spell-list">
+      {{#each spells}}
+      <li class="vgbnd-spell-row {{#if this.added}}vgbnd-added{{/if}}"
+          data-name="{{this.nameLower}}">
+        <span class="vgbnd-spell-name">{{this.name}}</span>
+        <button type="button" data-action="add" data-id="{{this.id}}"
+                {{#if this.added}}disabled{{/if}}>
+          {{#if this.added}}
+            <i class="fa-solid fa-check"></i>
+          {{else}}
+            <i class="fa-solid fa-plus"></i> {{localize "VGBND.AddToActor"}}
+          {{/if}}
+        </button>
+      </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  <div class="form-footer">
+    <button type="button" data-action="finish">
+      <i class="fa-solid fa-check"></i> {{localize "VGBND.SpellFinish"}}
+    </button>
+  </div>
+</div>

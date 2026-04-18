@@ -52,15 +52,13 @@ export class VgbndMapper {
     const unresolved = [];
     const items = await this.#resolveItems(raw.items ?? [], raw.system?.focus?.spellIds ?? [], unresolved);
 
-    const img = raw.img ?? null;
+    const img = raw.img ?? "icons/svg/mystery-man.svg";
 
     const actorData = {
       name:   raw.name ?? "Unnamed Character",
       type:   raw.type ?? "character",
       img,
-      prototypeToken: img ? {
-        texture: { src: img },
-      } : {},
+      prototypeToken: { texture: { src: img } },
       system: this.#mapSystem(raw.system ?? {}),
       items,
     };
@@ -83,7 +81,7 @@ export class VgbndMapper {
         this.#applyOverrides(itemData, apiItem, focusSpellIds);
         resolved.push(itemData);
       } else {
-        unresolved.push(`${apiItem.name} (${apiItem.type})`);
+        unresolved.push({ name: apiItem.name, type: apiItem.type });
         console.warn(`vgbnd-importer | "${apiItem.name}" (${apiItem.type}) — no compendium match, skipping.`);
         // We intentionally do NOT push a fallback item — unresolved are reported to the GM
       }
@@ -152,7 +150,12 @@ export class VgbndMapper {
       await pack.getIndex();
 
       for (const entry of pack.index) {
-        if (!entry.name.trim().toLowerCase().includes(needle)) continue;
+        const haystack = entry.name.trim().toLowerCase();
+        const words = needle.split(/\W+/).filter(Boolean);
+        const matches = haystack.includes(needle)
+          || needle.includes(haystack)
+          || words.every(w => haystack.includes(w));
+        if (!matches) continue;
         const key = `${packId}:${entry._id}`;
         if (seen.has(key)) continue;
         seen.add(key);
@@ -170,6 +173,7 @@ export class VgbndMapper {
   // The API already sends system data in Foundry format via ?format=foundry,
   // so we pass it through directly. Foundry fills in any missing fields with defaults.
   static #mapSystem(apiSystem) {
+    foundry.utils.setProperty(apiSystem, "details.builderDismissed", true);
     return apiSystem;
   }
 
