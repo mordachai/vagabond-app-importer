@@ -7,6 +7,7 @@
 Imports characters from [vgbnd.app](https://www.vgbnd.app) directly into Foundry VTT as Vagabond system actors.
 
 **Requirements:**
+
 - Foundry VTT v13+
 - [Vagabond system](https://github.com/FoundryVTT-Vagabond/vagabond) installed and active
 
@@ -58,3 +59,9 @@ https://github.com/mordachai/vagabond-app-importer/releases/latest/download/modu
 ## License
 
 MIT License
+
+---
+
+“Vagabond Importer for Foundry is an independent product published under the Land of the Blind Third-Party License and is not affiliated with Land of the Blind, LLC.
+
+[Vagabond](https://landoftheblind.myshopify.com/) // Pulp Fantasy RPG © 2025 Land of theBlind, LLC.”
