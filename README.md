@@ -4,25 +4,15 @@
 
 # Vagabond App Importer
 
-Imports characters from **Vagabond Tag Along** (https://www.vgbnd.app) directly into Foundry VTT as Vagabond system actors.
+<img width="1850" height="977" alt="CopyQ MHOecn" src="https://github.com/user-attachments/assets/46ad4ce3-d642-448a-8fe1-4e1b5501ed3d" />
 
 
+### Imports characters from **Vagabond Tag Along** (https://www.vgbnd.app) directly into Foundry VTT as Vagabond system actors.
 
-https://github.com/user-attachments/assets/0265690d-a5b8-437e-83a3-cb29cbc575e3
-
-
-
-
-
-
-**Requirements:**
-
-- Foundry VTT v13+
-- [Vagabond system](https://github.com/FoundryVTT-Vagabond/vagabond) installed and active
 
 ---
 
-## How to Use
+## How to Use ([Video Here](https://www.youtube.com/watch?v=hMbYEKtBhmk))
 
 1. Open the **Actors** sidebar tab — click **Import from Vagabond** at the bottom
 2. Paste your character URL or UUID into the input field
@@ -53,6 +43,11 @@ If the character's class or ancestry is marked as a spellcaster, you'll be promp
 > **Note:** The vgbnd.app API does not export spells yet. This is a manual step until that changes.
 
 ---
+
+**Requirements:**
+
+- Foundry VTT v13+
+- [Vagabond system](https://github.com/FoundryVTT-Vagabond/vagabond) installed and active
 
 ## Installation
 
