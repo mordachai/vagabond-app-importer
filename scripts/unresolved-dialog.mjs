@@ -4,12 +4,20 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 export class VgbndUnresolvedDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   #actor;
-  #items; // [{ name, type }]
+  #items;
+  #resolveClose;
+  closed = new Promise(resolve => this.#resolveClose = resolve);
 
   constructor(actor, items, options = {}) {
     super(options);
     this.#actor = actor;
     this.#items = items;
+  }
+
+  async close(options) {
+    const result = await super.close(options);
+    this.#resolveClose();
+    return result;
   }
 
   static DEFAULT_OPTIONS = {

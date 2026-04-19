@@ -374,8 +374,14 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
 
     actor?.sheet?.render(true);
 
-    if (unresolved.length) new VgbndUnresolvedDialog(actor, unresolved).render(true);
+    // Wait for unresolved items to be handled before continuing
+    if (unresolved.length) {
+      const dlg = new VgbndUnresolvedDialog(actor, unresolved);
+      dlg.render(true);
+      await dlg.closed;
+    }
 
+    // Wait for spell selection before continuing to the next character
     const classItem    = actor.items.find(i => i.type === "class");
     const ancestryItem = actor.items.find(i => i.type === "ancestry");
     const isSpellcaster = classItem?.system?.isSpellcaster === true
@@ -389,7 +395,11 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
         window:  { title: game.i18n.localize("VGBND.SpellPromptTitle") },
         content: `<p>${game.i18n.localize("VGBND.SpellPromptBody")}</p>`,
       });
-      if (proceed) new VgbndSpellDialog(actor, spellCount).render(true);
+      if (proceed) {
+        const dlg = new VgbndSpellDialog(actor, spellCount);
+        dlg.render(true);
+        await dlg.closed;
+      }
     }
   }
 }

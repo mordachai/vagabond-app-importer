@@ -4,13 +4,21 @@ const SPELL_PACK = "vagabond.spells";
 
 export class VgbndSpellDialog extends HandlebarsApplicationMixin(ApplicationV2) {
   #actor;
-  #spellCount; // how many spells this character should pick (null = unknown)
+  #spellCount;
   #added = 0;
+  #resolveClose;
+  closed = new Promise(resolve => this.#resolveClose = resolve);
 
   constructor(actor, spellCount = null, options = {}) {
     super(options);
     this.#actor = actor;
     this.#spellCount = spellCount;
+  }
+
+  async close(options) {
+    const result = await super.close(options);
+    this.#resolveClose();
+    return result;
   }
 
   static DEFAULT_OPTIONS = {
