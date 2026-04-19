@@ -4,13 +4,13 @@
 
 # Vagabond App Importer
 
-<img width="1850" height="977" alt="CopyQ MHOecn" src="https://github.com/user-attachments/assets/46ad4ce3-d642-448a-8fe1-4e1b5501ed3d" />
+<img width="1000" height="528" alt="CopyQ MHOecn" src="https://github.com/user-attachments/assets/46ad4ce3-d642-448a-8fe1-4e1b5501ed3d" />
 
 ### Imports characters from **Vagabond Tag Along** (https://www.vgbnd.app) directly into Foundry VTT as Vagabond system actors.
 
 ---
 
-## How to Use
+## How to Use (<a href="https://www.youtube.com/watch?v=hMbYEKtBhmk" target="_blank">Video Here</a>)
 
 1. Open the **Actors** sidebar tab — click **Browse Vagabond Tag Along** at the bottom
 2. Sign in with your [Vagabond Tag Along](https://www.vgbnd.app) account (email + password)
