@@ -6,23 +6,19 @@
 
 <img width="1850" height="977" alt="CopyQ MHOecn" src="https://github.com/user-attachments/assets/46ad4ce3-d642-448a-8fe1-4e1b5501ed3d" />
 
-
 ### Imports characters from **Vagabond Tag Along** (https://www.vgbnd.app) directly into Foundry VTT as Vagabond system actors.
-
 
 ---
 
-## How to Use ([Video Here](https://www.youtube.com/watch?v=hMbYEKtBhmk))
+## How to Use
 
-1. Open the **Actors** sidebar tab — click **Import from Vagabond** at the bottom
-2. Paste your character URL or UUID into the input field
-3. Click **Import**
+1. Open the **Actors** sidebar tab — click **Browse Vagabond Tag Along** at the bottom
+2. Sign in with your [Vagabond Tag Along](https://www.vgbnd.app) account (email + password)
+3. Your characters appear in the **My Characters** tab — click **Import** next to any character
 
-The module tries a direct fetch first. If the browser blocks it (CORS), the dialog expands with a fallback:
+### Group Import
 
-- Click the arrow button to open the character JSON in a new tab
-- Select all, copy, paste into the textarea
-- Click **Import** again
+Switch to the **Group** tab to see groups you belong to. Select a group to browse all member characters and import them individually. GMs get an **Import All** button to pull in every character in the group at once.
 
 ---
 
