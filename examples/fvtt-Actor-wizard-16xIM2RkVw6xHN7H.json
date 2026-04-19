@@ -1,0 +1,2438 @@
+{
+  "name": "Wizard",
+  "type": "character",
+  "img": "assets/images/wizard.jpg",
+  "system": {
+    "health": {
+      "value": 5,
+      "max": 10,
+      "bonus": []
+    },
+    "power": {
+      "value": 5,
+      "max": 5
+    },
+    "fatigue": 0,
+    "fatigueBonus": [],
+    "biography": "",
+    "attributes": {
+      "level": {
+        "value": 1
+      },
+      "xp": 0,
+      "size": null,
+      "beingType": null,
+      "isSpellcaster": false,
+      "manaMultiplier": 0,
+      "castingStat": "reason",
+      "manaSkill": "arcana"
+    },
+    "details": {
+      "constructed": true,
+      "builderDismissed": false
+    },
+    "currency": {
+      "gold": 2,
+      "silver": 34,
+      "copper": 0
+    },
+    "inventory": {
+      "bonusSlots": [
+        "0"
+      ],
+      "boundsBonus": []
+    },
+    "focus": {
+      "spellIds": [],
+      "maxBonus": [],
+      "max": 5,
+      "current": 0
+    },
+    "mana": {
+      "current": 4,
+      "bonus": [],
+      "max": 0,
+      "castingMax": 0,
+      "castingMaxBonus": []
+    },
+    "speed": {
+      "bonus": []
+    },
+    "currentLuck": 2,
+    "bonusLuck": [],
+    "studiedDice": 0,
+    "armorBonus": [],
+    "universalCheckBonus": [
+      "0"
+    ],
+    "manualCheckBonus": 0,
+    "universalDamageBonus": [],
+    "universalDamageDice": [],
+    "universalWeaponDamageBonus": [],
+    "universalWeaponDamageDice": [],
+    "universalSpellDamageBonus": [],
+    "universalSpellDamageDice": [],
+    "universalAlchemicalDamageBonus": [],
+    "universalAlchemicalDamageDice": [],
+    "meleeDamageDieSizeBonus": [],
+    "rangedDamageDieSizeBonus": [],
+    "brawlDamageDieSizeBonus": [],
+    "finesseDamageDieSizeBonus": [],
+    "spellDamageDieSizeBonus": [],
+    "cleaveTargets": [],
+    "brutalDice": [],
+    "spellDamageDieSize": 6,
+    "meleeCritBonus": [],
+    "rangedCritBonus": [],
+    "brawlCritBonus": [],
+    "finesseCritBonus": [],
+    "reflexCritBonus": [],
+    "endureCritBonus": [],
+    "attackCritBonus": [],
+    "castCritBonus": [],
+    "incomingDamageReductionPerDie": [],
+    "bonuses": {
+      "hpPerLevel": [],
+      "spellManaCostReduction": [],
+      "deliveryManaCostReduction": [],
+      "globalExplode": [],
+      "globalExplodeValues": ""
+    },
+    "favorHinder": "none",
+    "critNumber": 20,
+    "stats": {
+      "might": {
+        "value": 5,
+        "bonus": [
+          "0"
+        ]
+      },
+      "dexterity": {
+        "value": 5,
+        "bonus": [
+          "0"
+        ]
+      },
+      "awareness": {
+        "value": 5,
+        "bonus": [
+          "0"
+        ]
+      },
+      "reason": {
+        "value": 5,
+        "bonus": [
+          "0"
+        ]
+      },
+      "presence": {
+        "value": 3,
+        "bonus": [
+          "0"
+        ]
+      },
+      "luck": {
+        "value": 2,
+        "bonus": [
+          "0"
+        ]
+      }
+    },
+    "saves": {
+      "reflex": {
+        "bonus": []
+      },
+      "endure": {
+        "bonus": []
+      },
+      "will": {
+        "bonus": []
+      }
+    },
+    "skills": {
+      "arcana": {
+        "trained": true,
+        "bonus": []
+      },
+      "craft": {
+        "trained": true,
+        "bonus": []
+      },
+      "medicine": {
+        "trained": true,
+        "bonus": []
+      },
+      "brawl": {
+        "trained": false,
+        "bonus": []
+      },
+      "finesse": {
+        "trained": true,
+        "bonus": []
+      },
+      "melee": {
+        "trained": false,
+        "bonus": []
+      },
+      "ranged": {
+        "trained": false,
+        "bonus": []
+      },
+      "sneak": {
+        "trained": false,
+        "bonus": []
+      },
+      "detect": {
+        "trained": false,
+        "bonus": []
+      },
+      "mysticism": {
+        "trained": false,
+        "bonus": []
+      },
+      "survival": {
+        "trained": false,
+        "bonus": []
+      },
+      "influence": {
+        "trained": false,
+        "bonus": []
+      },
+      "leadership": {
+        "trained": false,
+        "bonus": []
+      },
+      "performance": {
+        "trained": true,
+        "bonus": []
+      }
+    },
+    "immunities": [],
+    "weaknesses": [],
+    "statusImmunities": [],
+    "statusResistances": [],
+    "incomingHealingModifier": 0,
+    "incomingAttacksModifier": "none",
+    "outgoingSavesModifier": "none",
+    "autoFailStats": [],
+    "autoFailAllRolls": false,
+    "defenderStatusModifiers": {
+      "attackersAreBlinded": false,
+      "closeAttacksAutoCrit": false
+    },
+    "statusEffectData": {
+      "charmed": {
+        "charmerUuid": ""
+      },
+      "burning": {
+        "damageFormula": "1d6",
+        "damageType": "fire"
+      },
+      "suffocating": {
+        "startRound": 0
+      }
+    }
+  },
+  "prototypeToken": {
+    "name": "Character",
+    "displayName": 0,
+    "actorLink": true,
+    "width": 1,
+    "height": 1,
+    "texture": {
+      "src": "assets/images/wizard.jpg",
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "offsetX": 0,
+      "offsetY": 0,
+      "fit": "contain",
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "tint": "#ffffff",
+      "alphaThreshold": 0.75
+    },
+    "lockRotation": false,
+    "rotation": 0,
+    "alpha": 1,
+    "disposition": 1,
+    "displayBars": 0,
+    "bar1": {
+      "attribute": "health"
+    },
+    "bar2": {
+      "attribute": null
+    },
+    "light": {
+      "negative": false,
+      "priority": 0,
+      "alpha": 0.5,
+      "angle": 360,
+      "bright": 0,
+      "color": null,
+      "coloration": 1,
+      "dim": 0,
+      "attenuation": 0.5,
+      "luminosity": 0.5,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "animation": {
+        "type": null,
+        "speed": 5,
+        "intensity": 5,
+        "reverse": false
+      },
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "sight": {
+      "enabled": false,
+      "range": 0,
+      "angle": 360,
+      "visionMode": "basic",
+      "color": null,
+      "attenuation": 0.1,
+      "brightness": 0,
+      "saturation": 0,
+      "contrast": 0
+    },
+    "detectionModes": [],
+    "occludable": {
+      "radius": 0
+    },
+    "ring": {
+      "enabled": false,
+      "colors": {
+        "ring": null,
+        "background": null
+      },
+      "effects": 1,
+      "subject": {
+        "scale": 1,
+        "texture": null
+      }
+    },
+    "turnMarker": {
+      "mode": 1,
+      "animation": null,
+      "src": null,
+      "disposition": false
+    },
+    "movementAction": null,
+    "flags": {},
+    "randomImg": false,
+    "appendNumber": false,
+    "prependAdjective": false
+  },
+  "items": [
+    {
+      "name": "Orc",
+      "type": "ancestry",
+      "img": "systems/vagabond/assets/ui/compendiums/orc.webp",
+      "system": {
+        "description": "<p><span class=\"fontstyle0\">Mutant nightkin that take on a variety of appearances. Some with snouts and tusks, or fur and horns, or those with calloused and verdigris skin. They typically settle in close-knit tribes where “might is right”, and have been known to establish themselves as commanders over goblin warbands.</span></p>",
+        "size": "medium",
+        "ancestryType": "Cryptid",
+        "traits": [
+          {
+            "name": "Darksight",
+            "description": "You are not Blinded by Dark.",
+            "statBonusPoints": 0,
+            "extraTraining": 0,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "perkAmount": 0,
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Beefy",
+            "description": "You make Saves against being Grappled or Shoved with Favor, and have Favor on Checks to Grapple or Shove.",
+            "statBonusPoints": 0,
+            "extraTraining": 0,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "perkAmount": 0,
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Hulking",
+            "description": "You have a +2 bonus to Item Slots.",
+            "statBonusPoints": 0,
+            "extraTraining": 0,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "perkAmount": 0,
+            "spellAmount": 0,
+            "skillChoices": []
+          }
+        ]
+      },
+      "effects": [
+        {
+          "name": "Hulking (Orc Trait)",
+          "origin": "Compendium.vagabond.ancestries.Item.4b55ZN5hVR3goYRZ",
+          "img": "icons/svg/aura.svg",
+          "_id": "TnpQ3eDF0qwfSsI3",
+          "type": "base",
+          "system": {},
+          "changes": [
+            {
+              "key": "system.inventory.bonusSlots",
+              "mode": 2,
+              "value": "2",
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": null,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "",
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {
+            "vagabond": {
+              "applicationMode": "permanent"
+            }
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "vagabond",
+            "systemVersion": "5.2.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "lastModifiedBy": null
+      },
+      "_id": "4b55ZN5hVR3goYRZ",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Wizard",
+      "type": "class",
+      "img": "icons/magic/symbols/star-rising-purple.webp",
+      "system": {
+        "description": "<p><strong>In a way, we are magicians. We are alchemists, sorcerers and wizards. We are a very strange bunch. But there is great fun in being a wizard.</strong></p><p><em>— Billy Joel</em></p><p>Students of the arcane arts, researchers and developers of spells as academic pursuit.</p><h3>Iconic Wizards</h3><ul><li><strong>Harry Dresden</strong>, <em>The Dresden Files</em></li><li><strong>Merlyn</strong>, <em>Arthurian legend</em></li><li><strong>Sparrow</strong>, <em>Earthsea series</em></li><li><strong>Sypha Belnades</strong>, <em>Castlevania</em></li></ul><h3>Playing Wizard</h3><p>The wizard is a squishy blaster focused on Casting Spells. Stay in safety to Cast your Spells and discover Enemy weaknesses.</p><p><strong>Action:</strong> Cast<br /><strong>Move:</strong> Backline<br /><strong>Starting Perk:</strong> Astronomer or Mage<br /><strong>Key Stat:</strong> Reason<br /><strong>Complexity:</strong> ★★★★☆</p><h3>Training</h3><p><strong>Weapons —</strong><br /><strong>Skills:</strong> Arcana, and 4 others</p><p></p><h3><span class=\"fontstyle0\">Class Features</span></h3><table class=\"NormalTable\"><tbody><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle0\" style=\"color:rgb(255,255,255);font-size:9pt\">Level</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle0\" style=\"color:rgb(255,255,255);font-size:9pt\">Features</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle0\" style=\"color:rgb(255,255,255);font-size:9pt\">Mana</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle0\" style=\"color:rgb(255,255,255);font-size:9pt\">Spells</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">1st</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Spellcaster, Page Master</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">4</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">4</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">2nd</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Sculpt Spell</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">8</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">4</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">3rd</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Perk</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">12</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">5</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">4th</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Manifold Mind (2)</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">16</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">5</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">5th</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Perk</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">20</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">6</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">6th</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Extracurricular</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">24</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">6</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">7th</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Perk</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">28</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">7</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">8th</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Manifold Mind (3)</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">32</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">7</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">9th</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Perk</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">36</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">8</span></p></td></tr><tr><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"67\"><p><span class=\"fontstyle2\">10th</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"115\"><p><span class=\"fontstyle2\">Archwizard</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\" data-colwidth=\"82\"><p><span class=\"fontstyle2\">40</span></p></td><td style=\"border-left-style:none;border-bottom-style:none;border-right-style:none;border-top-style:none\"><p><span class=\"fontstyle2\">8</span></p></td></tr></tbody></table><p><br style=\"font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px\" /></p>",
+        "isSpellcaster": true,
+        "levelFeatures": [
+          {
+            "name": "Spellcaster",
+            "description": "<p><span class=\"fontstyle0\">You can Cast Spells using Arcana.</span></p><p><span class=\"fontstyle2\"><strong>Spells:</strong> </span><span class=\"fontstyle0\">You learn 4 Spells. You learn 1 other Spell every 2 Wizard Levels hereafter.</span></p><p><span class=\"fontstyle2\"><strong>Mana:</strong> </span><span class=\"fontstyle0\">Your Maximum Mana is equal to (4 × your Wizard Level), and the highest amount of Mana you can spend to Cast a Spell is equal to (Reason + half your Wizard Level, round up). You regain spent Mana when you Rest or Study.</span> </p>",
+            "level": 1,
+            "statBonusPoints": 0,
+            "extraTraining": 0,
+            "perkAmount": 0,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Sculpt Spell",
+            "description": "<p><span class=\"fontstyle0\">You pay 1 less Mana for Spell delivery.</span> </p>",
+            "level": 2,
+            "statBonusPoints": 1,
+            "extraTraining": 0,
+            "perkAmount": 0,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Perk",
+            "description": "<p>Choose a new perk, <span class=\"fontstyle0\">you do not need to meet the Prerequisite to benefit from it.</span> </p>",
+            "level": 3,
+            "statBonusPoints": 0,
+            "extraTraining": 0,
+            "perkAmount": 1,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Page Master",
+            "description": "<p><span class=\"fontstyle0\">You gain the Bookworm Perk (p. 67). Additionally, when you successfully Cast a Spell, you can spend one of your Studied dice and add it to the damage or healing roll.</span></p><p></p>",
+            "level": 1,
+            "statBonusPoints": 0,
+            "extraTraining": 0,
+            "perkAmount": 1,
+            "allowedPerks": [
+              "Compendium.vagabond.perks.Item.lDzaNi9ay6p8y0Ay"
+            ],
+            "requiredSpells": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Perk",
+            "description": "<p>Choose a new perk, <span class=\"fontstyle0\">you do not need to meet the Prerequisite to benefit from it.</span> </p>",
+            "level": 9,
+            "statBonusPoints": 0,
+            "extraTraining": 0,
+            "perkAmount": 1,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Manifold Mind II",
+            "description": "<p><span class=\"fontstyle0\">You can Focus on up to three Spells at the same time. </span><br style=\" font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; \"></p>",
+            "level": 8,
+            "statBonusPoints": 1,
+            "extraTraining": 0,
+            "perkAmount": 0,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Perk",
+            "description": "<p>Choose a new perk, <span class=\"fontstyle0\">you do not need to meet the Prerequisite to benefit from it.</span> </p>",
+            "level": 7,
+            "statBonusPoints": 0,
+            "extraTraining": 0,
+            "perkAmount": 1,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Extracurricular",
+            "description": "<p><span class=\"fontstyle0\">When you Cast, you can spend a Studied die to cast any one Spell with that Casting, even if it isn’t a Spell you know.</span> <br style=\" font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; \"></p>",
+            "level": 6,
+            "statBonusPoints": 1,
+            "extraTraining": 0,
+            "perkAmount": 0,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Manifold Mind",
+            "description": "<p><span class=\"fontstyle0\">You can Focus on up to two Spells at the same time. When you become an 8th Level Wizard, you can Focus on up to three Spells at the same time.</span> <br style=\" font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; \"></p>",
+            "level": 4,
+            "statBonusPoints": 1,
+            "extraTraining": 0,
+            "perkAmount": 0,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Perk",
+            "description": "<p>Choose a new perk, <span class=\"fontstyle0\">you do not need to meet the Prerequisite to benefit from it.</span> </p>",
+            "level": 5,
+            "statBonusPoints": 0,
+            "extraTraining": 0,
+            "perkAmount": 1,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          },
+          {
+            "name": "Archwizard",
+            "description": "<p><span class=\"fontstyle0\">You pay 2 less Mana for Spell delivery</span>.</p>",
+            "level": 10,
+            "statBonusPoints": 1,
+            "extraTraining": 0,
+            "perkAmount": 0,
+            "requiredSpells": [],
+            "allowedPerks": [],
+            "spellAmount": 0,
+            "skillChoices": []
+          }
+        ],
+        "manaSkill": "arcana",
+        "castingStat": "reason",
+        "manaMultiplier": 4,
+        "skillGrant": {
+          "choices": [
+            {
+              "count": 4,
+              "pool": [],
+              "label": ""
+            }
+          ],
+          "guaranteed": [
+            "arcana"
+          ]
+        },
+        "levelSpells": [
+          {
+            "spells": 4,
+            "level": 1
+          },
+          {
+            "spells": 4,
+            "level": 2
+          },
+          {
+            "spells": 5,
+            "level": 3
+          },
+          {
+            "spells": 5,
+            "level": 4
+          },
+          {
+            "spells": 6,
+            "level": 5
+          },
+          {
+            "spells": 6,
+            "level": 6
+          },
+          {
+            "spells": 7,
+            "level": 7
+          },
+          {
+            "spells": 7,
+            "level": 8
+          },
+          {
+            "spells": 8,
+            "level": 9
+          },
+          {
+            "spells": 8,
+            "level": 10
+          }
+        ],
+        "keyStats": [
+          "reason"
+        ],
+        "suggestedStartingPacks": [
+          "Compendium.vagabond.starting-packs.Item.hje865DkzVVguhdT",
+          "Compendium.vagabond.starting-packs.Item.2G3GnGMuSzqQwaxo"
+        ]
+      },
+      "effects": [
+        {
+          "name": "lv2 - Sculpt Spell",
+          "origin": "Compendium.vagabond.classes.Item.U3rAxH8vn8tzDblW",
+          "img": "icons/svg/aura.svg",
+          "_id": "QiaBDly7znkQofrY",
+          "type": "base",
+          "system": {},
+          "changes": [
+            {
+              "key": "system.bonuses.deliveryManaCostReduction",
+              "mode": 2,
+              "value": "(@attributes.level.value >= 2) ? 1 : 0",
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": null,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "<p>You pay 1 less Mana for Spell delivery.</p>",
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {
+            "vagabond": {
+              "applicationMode": "permanent"
+            }
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "vagabond",
+            "systemVersion": "5.2.2",
+            "lastModifiedBy": null
+          }
+        },
+        {
+          "name": "lv.10 - Sculpt-Spell",
+          "origin": "Compendium.vagabond.classes.Item.U3rAxH8vn8tzDblW",
+          "img": "icons/svg/aura.svg",
+          "_id": "bUeMPzes09myEhWl",
+          "type": "base",
+          "system": {},
+          "changes": [
+            {
+              "key": "system.bonuses.deliveryManaCostReduction",
+              "mode": 2,
+              "value": "(@lvl >= 10) ? 1 : 0",
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": null,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "<p>You pay 2 less Mana for Spell delivery.</p>",
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {
+            "vagabond": {
+              "applicationMode": "permanent"
+            }
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "vagabond",
+            "systemVersion": "5.2.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "lastModifiedBy": null
+      },
+      "_id": "U3rAxH8vn8tzDblW",
+      "sort": 1000000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Bookworm",
+      "type": "perk",
+      "img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+      "system": {
+        "description": "<p><span class=\"fontstyle0\">You gain an extra Studied die when you Study (p. 19). You can take this Perk multiple times.</span> <br style=\"font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:normal;orphans:2;text-align:-webkit-auto;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;-webkit-text-size-adjust:auto;-webkit-text-stroke-width:0px\" /></p>",
+        "prerequisites": {
+          "stats": [
+            {
+              "stat": "reason",
+              "value": 4
+            }
+          ],
+          "trainedSkills": [],
+          "spells": [],
+          "statOrGroups": [],
+          "trainedSkillOrGroups": [],
+          "spellOrGroups": [],
+          "hasAnySpell": false,
+          "resources": [],
+          "resourceOrGroups": []
+        },
+        "choiceConfig": {
+          "type": "none",
+          "selected": "",
+          "targetField": "",
+          "effectMode": 5,
+          "effectValue": "1"
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "lastModifiedBy": null
+      },
+      "_id": "lDzaNi9ay6p8y0Ay",
+      "sort": 8100000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Babble",
+      "type": "spell",
+      "img": "icons/magic/control/energy-stream-link-large-blue.webp",
+      "system": {
+        "description": "<p><span class=\"fontstyle0\">When the Check passes, and each time you Focus on the Cast for the duration, you can cause the Target to loudly and coherently repeat everything you mentally command them to. They are otherwise mute.</span></p>",
+        "damageType": "-",
+        "duration": "Until your next turn",
+        "crit": "Duration is continual.",
+        "favorite": true,
+        "fxSchool": "genericdark",
+        "locked": true,
+        "canExplode": false,
+        "explodeValues": "",
+        "damageDieSize": null,
+        "noRollRequired": false,
+        "causedStatuses": [],
+        "critCausedStatuses": []
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "lastModifiedBy": null
+      },
+      "_id": "utqWkcOdK7WVqv7N",
+      "sort": 5200000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Animate",
+      "type": "spell",
+      "img": "icons/magic/movement/pinwheel-turning-blue.webp",
+      "system": {
+        "description": "<p><span class=\"fontstyle0\">You animate an Item that occupies no more than 1 Slot in the Area or carried by the Target. For the duration, the Item gains a Speed of 30' (Fly), and uses the Object Armor &amp; HP rules (p. 12) for its Stats. It obeys your commands, which you can issue when you Focus on this Spell. If it is a Weapon, it can make Attacks using your Cast Skill.</span></p>",
+        "damageType": "-",
+        "duration": "Until your next turn",
+        "crit": "",
+        "favorite": true,
+        "noRollRequired": true,
+        "fxSchool": "genericlight",
+        "locked": true,
+        "canExplode": false,
+        "explodeValues": "",
+        "damageDieSize": null,
+        "causedStatuses": [],
+        "critCausedStatuses": []
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "lastModifiedBy": null
+      },
+      "_id": "tpmMtwrz5IZ4ZkHp",
+      "sort": 5100000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Kinesis",
+      "type": "spell",
+      "img": "icons/magic/earth/projectile-stone-boulder-blue.webp",
+      "system": {
+        "description": "<p><span class=\"fontstyle0\">You shoot an unsecured Target of 1 or less HD or Slots at a Target you can see within Near. If it strikes a Target, it hits them harmlessly unless this is Cast to deal damage.</span></p><p><span class=\"fontstyle0\">You can spend Mana to increase the Targetable HD or Slots by 1 per Mana spent to do so for that Casting.</span></p>",
+        "damageType": "blunt",
+        "duration": "Until your next turn",
+        "crit": "",
+        "favorite": true,
+        "fxSchool": "blunt",
+        "locked": true,
+        "canExplode": false,
+        "explodeValues": "",
+        "damageDieSize": null,
+        "noRollRequired": false,
+        "causedStatuses": [],
+        "critCausedStatuses": []
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "lastModifiedBy": null
+      },
+      "_id": "Z46O80kXCKWgshq2",
+      "sort": 2800000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Confuse",
+      "type": "spell",
+      "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+      "system": {
+        "description": "<p><span class=\"fontstyle0\">The Target is Confused for the duration.</span></p>",
+        "damageType": "-",
+        "duration": "Until your next turn",
+        "crit": "Duration is continual.",
+        "favorite": true,
+        "fxSchool": "psychic",
+        "locked": true,
+        "canExplode": false,
+        "explodeValues": "",
+        "damageDieSize": null,
+        "noRollRequired": false,
+        "critCausedStatuses": [
+          {
+            "statusId": "confused",
+            "requiresDamage": true,
+            "saveType": "will",
+            "duration": "",
+            "tickDamageEnabled": false,
+            "damageOnTick": "",
+            "damageType": "-"
+          }
+        ],
+        "causedStatuses": [
+          {
+            "statusId": "confused",
+            "requiresDamage": true,
+            "saveType": "will",
+            "duration": "focusing",
+            "tickDamageEnabled": false,
+            "damageOnTick": "",
+            "damageType": "-"
+          }
+        ]
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "lastModifiedBy": null
+      },
+      "_id": "T1WYf4YiYEEYYOnh",
+      "sort": 5300000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Backpack",
+      "type": "equipment",
+      "img": "icons/containers/bags/pack-leather-white-tan.webp",
+      "system": {
+        "description": "<p>Add +2 slot to Inventory when equipped.</p>",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 5,
+          "copper": 0
+        },
+        "baseSlots": 0,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Outdoors",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isBeverage": false,
+        "isConsumable": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [
+        {
+          "name": "Bonus Inventory",
+          "origin": "Compendium.vagabond.gear.Item.8o8KVSgpYsNFtGz2",
+          "img": "icons/svg/aura.svg",
+          "_id": "YJlQPYRINJ72Nf57",
+          "type": "base",
+          "system": {},
+          "changes": [
+            {
+              "key": "system.inventory.bonusSlots",
+              "mode": 2,
+              "value": "2",
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": 0,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "",
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {
+            "vagabond": {
+              "applicationMode": "permanent"
+            }
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "vagabond",
+            "systemVersion": "5.2.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "folder": "JWxsOwy6496521vG",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "IrPSNlXQfOmVhGif",
+      "sort": 500000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Bedroll",
+      "type": "equipment",
+      "img": "icons/sundries/survival/bedroll-brown.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 1,
+          "copper": 0
+        },
+        "baseSlots": 1,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Personal Items",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isBeverage": false,
+        "isConsumable": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.E8EvKjEA8CZtspeq",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "NRBF87qNrm1GaXqK",
+      "folder": "eJr6Ga93jTGeOvQL",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Rations (1 day)",
+      "type": "equipment",
+      "img": "icons/consumables/food/cooked-grilled-ham-hock-glazed-brown.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 1,
+          "copper": 0
+        },
+        "baseSlots": 0,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Cooking & Food",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "isConsumable": true,
+        "isSupply": true,
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isBeverage": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.1aDHjn4GzdhNatAa",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "wdy4RIfIPKii138B",
+      "folder": "LWA8sFw703LrSG08",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Rations (1 day)",
+      "type": "equipment",
+      "img": "icons/consumables/food/cooked-grilled-ham-hock-glazed-brown.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 1,
+          "copper": 0
+        },
+        "baseSlots": 0,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Cooking & Food",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "isConsumable": true,
+        "isSupply": true,
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isBeverage": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.1aDHjn4GzdhNatAa",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "XMsYNYG0Gz6VB7h7",
+      "folder": "LWA8sFw703LrSG08",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Rations (1 day)",
+      "type": "equipment",
+      "img": "icons/consumables/food/cooked-grilled-ham-hock-glazed-brown.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 1,
+          "copper": 0
+        },
+        "baseSlots": 0,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Cooking & Food",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "isConsumable": true,
+        "isSupply": true,
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isBeverage": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.1aDHjn4GzdhNatAa",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "8wEKOmaqeyC37yPk",
+      "folder": "LWA8sFw703LrSG08",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Rations (1 day)",
+      "type": "equipment",
+      "img": "icons/consumables/food/cooked-grilled-ham-hock-glazed-brown.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 1,
+          "copper": 0
+        },
+        "baseSlots": 0,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Cooking & Food",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "isConsumable": true,
+        "isSupply": true,
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isBeverage": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.1aDHjn4GzdhNatAa",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "rajeOYt6d0JTBMuI",
+      "folder": "LWA8sFw703LrSG08",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Rations (1 day)",
+      "type": "equipment",
+      "img": "icons/consumables/food/cooked-grilled-ham-hock-glazed-brown.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 1,
+          "copper": 0
+        },
+        "baseSlots": 0,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Cooking & Food",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "isConsumable": true,
+        "isSupply": true,
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isBeverage": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.1aDHjn4GzdhNatAa",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "xoE5OYulgvxJ3pwt",
+      "folder": "LWA8sFw703LrSG08",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Torch",
+      "type": "equipment",
+      "img": "icons/sundries/lights/torch-brown-lit.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 1,
+          "copper": 0
+        },
+        "baseSlots": 1,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Outdoors",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "isConsumable": true,
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isBeverage": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.DYyovV45NVSRFpPu",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "CafUNAtX6n5ONled",
+      "folder": "JWxsOwy6496521vG",
+      "sort": 2400000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Torch",
+      "type": "equipment",
+      "img": "icons/sundries/lights/torch-brown-lit.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 1,
+          "copper": 0
+        },
+        "baseSlots": 1,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Outdoors",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "isConsumable": true,
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isBeverage": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.DYyovV45NVSRFpPu",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "cXBtA5nOqo1Q1HpD",
+      "folder": "JWxsOwy6496521vG",
+      "sort": 2400000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Waterskin",
+      "type": "equipment",
+      "img": "icons/sundries/survival/waterskin-leather-brown.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 2,
+          "copper": 0
+        },
+        "baseSlots": 1,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Personal Items",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "isBeverage": true,
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isConsumable": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.uLaKx7A2HD9bdS7z",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "vTVVpjnmX05w8NAI",
+      "folder": "eJr6Ga93jTGeOvQL",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Club",
+      "type": "equipment",
+      "img": "icons/weapons/clubs/club-banded-steel.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "weapon",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 2,
+          "copper": 0
+        },
+        "baseSlots": 1,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d4",
+        "damageTwoHands": "d4",
+        "equipmentState": "oneHand",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "itemFx": {
+          "enabled": true,
+          "hitFile": "modules/JB2A_DnD5e/Library/Generic/Weapon_Attacks/Melee/Group02/MeleeAttack02_Club*",
+          "hitDuration": 1000,
+          "animType": "auto",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        },
+        "damageTypeOneHand": "blunt",
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "canExplode": false,
+        "explodeValues": "",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isBeverage": false,
+        "isConsumable": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "vzgMT4OU5Qe1cXu0",
+      "sort": 4100000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Dagger",
+      "type": "equipment",
+      "img": "icons/weapons/daggers/dagger-curved-guard-black.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "weapon",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 10,
+          "copper": 0
+        },
+        "baseSlots": 1,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "properties": [
+          "Finesse",
+          "Keen",
+          "Thrown"
+        ],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d4",
+        "damageTwoHands": "d4",
+        "equipmentState": "oneHand",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "itemFx": {
+          "hitFile": "modules/JB2A_DnD5e/Library/Generic/Weapon_Attacks/Melee/Dagger02_01_Regular_White_800x600.webm",
+          "hitDuration": 1000,
+          "enabled": true,
+          "hitOffsetX": 100,
+          "animType": "auto",
+          "hitScale": 1,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        },
+        "damageTypeOneHand": "slashing",
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "canExplode": false,
+        "explodeValues": "",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isBeverage": false,
+        "isConsumable": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        }
+      },
+      "effects": [
+        {
+          "name": "Keen Property",
+          "origin": "Compendium.vagabond.weapons.Item.HwX2SFNKg7DPXSma",
+          "img": "icons/svg/aura.svg",
+          "_id": "BAkBu1lVdztUM1xa",
+          "type": "base",
+          "system": {},
+          "changes": [
+            {
+              "key": "system.critNumber",
+              "mode": 2,
+              "value": "-1",
+              "priority": null
+            }
+          ],
+          "disabled": false,
+          "duration": {
+            "startTime": 0,
+            "combat": null,
+            "seconds": null,
+            "rounds": null,
+            "turns": null,
+            "startRound": null,
+            "startTurn": null
+          },
+          "description": "",
+          "tint": "#ffffff",
+          "transfer": true,
+          "statuses": [],
+          "sort": 0,
+          "flags": {
+            "vagabond": {
+              "applicationMode": "on-use"
+            }
+          },
+          "_stats": {
+            "compendiumSource": null,
+            "duplicateSource": null,
+            "exportSource": null,
+            "coreVersion": "13.351",
+            "systemId": "vagabond",
+            "systemVersion": "5.2.2",
+            "lastModifiedBy": null
+          }
+        }
+      ],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "yo44vo9r0yHnApxX",
+      "sort": 1600000,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Dice set, loaded",
+      "type": "equipment",
+      "img": "icons/sundries/gaming/dice-runed-brown.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 20,
+          "copper": 0
+        },
+        "baseSlots": 1,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Games & Toys",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isBeverage": false,
+        "isConsumable": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.N6VJzGKFRQChf8fG",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "nbvIaZJ5b7dn6o5T",
+      "folder": "I2iJr4lRwrtOAYDq",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Light Armor",
+      "type": "equipment",
+      "img": "icons/equipment/chest/breastplate-quilted-brown.webp",
+      "system": {
+        "description": "<p><span class=\"fontstyle0\">Leather, hide, padded.</span></p><h4><span class=\"fontstyle0\">Equipping Armor</span></h4><p><span class=\"fontstyle2\">Equipping or unequipping Armor requires a Scene (10 minutes) to complete.</span> </p>",
+        "equipmentType": "armor",
+        "locked": true,
+        "equipped": true,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 50,
+          "copper": 0
+        },
+        "baseSlots": 2,
+        "metal": "common",
+        "damageType": "-",
+        "damageAmount": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "canExplode": false,
+        "explodeValues": "",
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isBeverage": false,
+        "isConsumable": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "1sFxaKOcKh69HTRd",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    },
+    {
+      "name": "Cards - deck, playing",
+      "type": "equipment",
+      "img": "icons/sundries/gaming/playing-cards.webp",
+      "system": {
+        "description": "",
+        "equipmentType": "gear",
+        "locked": true,
+        "equipped": false,
+        "quantity": 1,
+        "baseCost": {
+          "gold": 0,
+          "silver": 5,
+          "copper": 0
+        },
+        "baseSlots": 1,
+        "metal": "none",
+        "damageType": "-",
+        "damageAmount": "",
+        "canExplode": false,
+        "explodeValues": "",
+        "properties": [],
+        "weaponSkill": "melee",
+        "range": "close",
+        "grip": "1H",
+        "damageOneHand": "d6",
+        "damageTwoHands": "d8",
+        "equipmentState": "unequipped",
+        "armorType": "light",
+        "immunities": [],
+        "gearCategory": "Games & Toys",
+        "alchemicalType": "concoction",
+        "lore": "",
+        "requiresBound": false,
+        "bound": false,
+        "gridPosition": 0,
+        "containerId": null,
+        "damageTypeOneHand": "-",
+        "damageTypeTwoHands": "-",
+        "isSupply": false,
+        "isBeverage": false,
+        "isConsumable": false,
+        "linkedConsumable": "",
+        "passiveCausedStatuses": [],
+        "causedStatuses": [],
+        "critCausedStatuses": [],
+        "blockedStatuses": [],
+        "resistedStatuses": [],
+        "coating": {
+          "sourceName": "",
+          "charges": 0,
+          "causedStatuses": []
+        },
+        "itemFx": {
+          "enabled": false,
+          "animType": "auto",
+          "hitFile": "",
+          "hitScale": 1,
+          "hitOffsetX": 0,
+          "hitDuration": 800,
+          "hitSound": "",
+          "missFile": "",
+          "missScale": 1,
+          "missDuration": 600,
+          "missSound": "",
+          "soundVolume": 0.6
+        }
+      },
+      "effects": [],
+      "flags": {
+        "core": {}
+      },
+      "_stats": {
+        "compendiumSource": "Item.u61vaNU069uFBSLZ",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "vagabond",
+        "systemVersion": "5.2.2",
+        "createdTime": 1776512581995,
+        "modifiedTime": 1776512581995,
+        "lastModifiedBy": "F8NSgjyFamO0corq"
+      },
+      "_id": "bvhZKYQSstTkW9BE",
+      "folder": "I2iJr4lRwrtOAYDq",
+      "sort": 0,
+      "ownership": {
+        "default": 0
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "flags": {
+    "vagabond": {
+      "isPanelOpen": false
+    }
+  },
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": {
+      "worldId": "vagabond",
+      "uuid": "Actor.16xIM2RkVw6xHN7H",
+      "coreVersion": "13.351",
+      "systemId": "vagabond",
+      "systemVersion": "5.2.2"
+    },
+    "coreVersion": "13.351",
+    "systemId": "vagabond",
+    "systemVersion": "5.2.2",
+    "createdTime": 1776512561914,
+    "modifiedTime": 1776512674373,
+    "lastModifiedBy": "F8NSgjyFamO0corq"
+  },
+  "ownership": {
+    "default": 0
+  }
+}

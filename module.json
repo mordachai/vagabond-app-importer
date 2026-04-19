@@ -2,7 +2,7 @@
   "id": "vgbnd-importer",
   "title": "Vagabond App Importer",
   "description": "<p>Imports characters from Vagabond Tag Along (https://www.vgbnd.app/) directly into Foundry VTT as Vagabond system actors.</p>",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "authors": [
     {
       "name": "Gus",

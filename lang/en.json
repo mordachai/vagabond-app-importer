@@ -1,23 +1,5 @@
 {
-  "VGBND.ImportTitle": "Import Vagabond Character",
-  "VGBND.UUIDLabel": "Character UUID or URL",
-  "VGBND.UUIDPlaceholder": "e.g. 38008c0c-555c-47c2-b336-3a83cba1b477 or https://www.vgbnd.app/character/...",
-  "VGBND.UUIDHint": "Paste your character URL or UUID, then click the arrow button to open the JSON in a new tab.",
-  "VGBND.OpenUrlTitle": "Open character JSON in a new tab",
-  "VGBND.JSONLabel": "Paste character JSON",
-  "VGBND.JSONPlaceholder": "Copy all text from the opened tab and paste it here.",
-  "VGBND.ImportButton": "Import",
-  "VGBND.Cancel": "Cancel",
-  "VGBND.Fetching": "Fetching character data…",
-  "VGBND.Importing": "Importing character...",
-  "VGBND.ErrorNoInput": "Enter a character UUID or URL.",
-  "VGBND.CORSHint": "Direct fetch was blocked by the browser. Open the URL with the arrow button, copy all text from that page, and paste it below.",
-  "VGBND.Success": "Character \"{name}\" imported successfully!",
-  "VGBND.ErrorInvalidUUID": "Could not extract a valid UUID from the input.",
-  "VGBND.ErrorNoJSON": "Paste the character JSON before importing.",
-  "VGBND.ErrorBadJSON": "Could not parse JSON: {error}",
   "VGBND.ErrorCreate": "Failed to create actor: {error}",
-  "VGBND.SidebarButton": "Import from Vagabond",
   "VGBND.SpellTitle": "Add Spells",
   "VGBND.SpellPromptTitle": "Import Spells?",
   "VGBND.SpellPromptBody": "This character is a spellcaster. Would you like to pick spells from the compendium?<br><em style='font-size:0.85em;opacity:0.7'>Provisional — spell export from the Vagabond app is not yet supported by the API.</em>",
@@ -35,5 +17,33 @@
   "VGBND.AddedItem": "\"{name}\" added to actor.",
   "VGBND.CreateBlank": "Create blank",
   "VGBND.CreatedItem": "Blank item \"{name}\" created — fill it in manually.",
-  "VGBND.OK": "OK"
+  "VGBND.OK": "OK",
+
+  "VGBND.SidebarBrowseButton": "Browse Vagabond Tag Along",
+  "VGBND.BrowserTitle": "Vagabond Character Browser",
+
+  "VGBND.Email": "Email",
+  "VGBND.Password": "Password",
+  "VGBND.SignIn": "Sign In",
+  "VGBND.SigningIn": "Signing in…",
+  "VGBND.SignOut": "Sign Out",
+  "VGBND.ErrorLoginMissing": "Please enter your email and password.",
+
+  "VGBND.TabMine": "My Characters",
+  "VGBND.TabGroups": "Groups",
+  "VGBND.Loading": "Loading…",
+  "VGBND.Import": "Import",
+  "VGBND.ImportAll": "Import All",
+  "VGBND.Updated": "Updated",
+  "VGBND.Members": "members",
+  "VGBND.UnknownCharacter": "Unknown",
+
+  "VGBND.NoCharacters": "No characters found in your account.",
+  "VGBND.NoGroups": "You are not a member of any groups.",
+  "VGBND.NoGroupChars": "No characters found for this group's members.",
+  "VGBND.SelectGroup": "Select a group on the left to view its characters.",
+
+  "VGBND.Refresh": "Refresh",
+  "VGBND.ImportedSuccess": "{name} imported successfully.",
+  "VGBND.ErrorCORSFallback": "Direct fetch blocked — opening in a new tab. Copy the JSON and use Import by UUID if needed."
 }

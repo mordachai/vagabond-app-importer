@@ -1,64 +1,3 @@
-.vgbnd-import-dialog .form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 12px;
-}
-
-.vgbnd-import-dialog label {
-  font-weight: bold;
-  font-size: 0.85em;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.vgbnd-import-dialog .vgbnd-uuid-row {
-  display: flex;
-  gap: 4px;
-}
-
-.vgbnd-import-dialog .vgbnd-uuid-row input {
-  flex: 1;
-  font-family: monospace;
-  font-size: 0.85em;
-}
-
-.vgbnd-import-dialog input[type='text'] {
-  width: 100%;
-  font-family: monospace;
-  font-size: 0.85em;
-}
-
-.vgbnd-import-dialog .hint {
-  font-size: 0.75em;
-  color: var(--color-text-light-secondary, #888);
-}
-
-.vgbnd-import-dialog .vgbnd-json-section {
-  display: none;
-  margin-bottom: 12px;
-}
-
-.vgbnd-import-dialog .vgbnd-json-section.visible {
-  display: block;
-}
-
-.vgbnd-import-dialog .vgbnd-cors-hint {
-  font-size: 0.8em;
-  color: var(--color-level-warning, #a63);
-  margin-bottom: 8px;
-  display: flex;
-  gap: 6px;
-  align-items: flex-start;
-}
-
-.vgbnd-import-dialog .vgbnd-status {
-  font-style: italic;
-  font-size: 0.85em;
-  color: var(--color-text-light-secondary, #888);
-  min-height: 1.2em;
-}
-
 /* ── Unresolved dialog ─────────────────────────────────── */
 
 .vgbnd-unresolved-dialog .vgbnd-intro {
@@ -266,4 +205,493 @@
   padding: 2px 8px;
   line-height: 1.4;
   white-space: nowrap;
+}
+
+/* ── Browser dialog ────────────────────────────────────── */
+
+.vgbnd-browser-dialog .window-content {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.vgbnd-browser-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Login panel ───────────────────────────────────────── */
+
+.vgbnd-login-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 32px 24px;
+  gap: 10px;
+}
+
+.vgbnd-login-brand {
+  font-size: 1.6em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.vgbnd-login-brand i {
+  color: var(--color-level-warning, #a63);
+}
+
+.vgbnd-login-panel label {
+  align-self: flex-start;
+  font-weight: bold;
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 100%;
+  max-width: 320px;
+}
+
+.vgbnd-login-panel input,
+.vgbnd-login-panel button {
+  width: 100%;
+  max-width: 320px;
+}
+
+.vgbnd-login-panel button {
+  margin-top: 6px;
+}
+
+.vgbnd-error-msg {
+  color: var(--color-level-error, #c33);
+  font-size: 0.85em;
+  margin: 0;
+  max-width: 320px;
+  width: 100%;
+  text-align: center;
+}
+
+/* ── Browser panel ─────────────────────────────────────── */
+
+.vgbnd-browser-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.vgbnd-browser-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  flex-shrink: 0;
+}
+
+.vgbnd-tabs {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.vgbnd-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-size: 0.875em;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.65;
+  transition:
+    opacity 0.12s,
+    background 0.12s,
+    border-color 0.12s;
+}
+
+.vgbnd-tab:hover {
+  opacity: 1;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.vgbnd-tab.active {
+  opacity: 1;
+  font-weight: bold;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+  border-color: color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.vgbnd-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background: var(--color-level-warning, #a63);
+  color: #fff;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+.vgbnd-refresh-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.55;
+  transition:
+    opacity 0.12s,
+    border-color 0.12s;
+}
+
+.vgbnd-refresh-btn:hover:not(:disabled) {
+  opacity: 1;
+  border-color: color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.vgbnd-refresh-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.vgbnd-signout-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.82em;
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  opacity: 0.55;
+  transition:
+    opacity 0.12s,
+    border-color 0.12s;
+}
+
+.vgbnd-signout-btn:hover {
+  opacity: 1;
+  border-color: color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.vgbnd-state-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  opacity: 0.55;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+/* ── Character grid (My Characters tab) ─────────────────── */
+
+.vgbnd-char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 12px;
+  padding: 12px;
+  overflow-y: auto;
+  flex: 1;
+  align-content: start;
+}
+
+.vgbnd-char-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+  border-radius: 8px;
+  overflow: hidden;
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  transition:
+    box-shadow 0.15s,
+    border-color 0.15s;
+}
+
+.vgbnd-char-card:hover {
+  border-color: color-mix(in srgb, currentColor 32%, transparent);
+  box-shadow: 0 3px 12px color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.vgbnd-card-portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-size: cover;
+  background-position: center top;
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+  flex-shrink: 0;
+}
+
+.vgbnd-card-body {
+  padding: 8px 10px 4px;
+  flex: 1;
+}
+
+.vgbnd-card-name {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 2px;
+  color: inherit;
+}
+
+.vgbnd-card-subtitle {
+  font-size: 0.78em;
+  opacity: 0.7;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+}
+
+.vgbnd-card-date {
+  font-size: 0.72em;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.vgbnd-card-import-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  gap: 5px;
+  width: 90%;
+  padding: 6px;
+  font-size: 0.82em;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.12s;
+  margin: 10px 0;
+}
+
+.vgbnd-card-import-btn:hover:not(:disabled) {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.vgbnd-card-import-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ── Groups tab ──────────────────────────────────────────── */
+
+.vgbnd-group-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.vgbnd-group-sidebar {
+  width: 190px;
+  flex-shrink: 0;
+  border-right: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  background: color-mix(in srgb, currentColor 3%, transparent);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px;
+}
+
+.vgbnd-group-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background 0.12s,
+    border-color 0.12s;
+}
+
+.vgbnd-group-btn:hover {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.vgbnd-group-btn.active {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  border-color: color-mix(in srgb, currentColor 22%, transparent);
+}
+
+.vgbnd-group-btn > i {
+  flex-shrink: 0;
+  opacity: 0.55;
+}
+
+.vgbnd-group-btn-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.vgbnd-group-name {
+  font-size: 0.9em;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vgbnd-group-members {
+  font-size: 0.75em;
+  opacity: 0.6;
+}
+
+.vgbnd-group-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.vgbnd-group-toolbar {
+  padding: 8px 12px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  background: color-mix(in srgb, currentColor 3%, transparent);
+  flex-shrink: 0;
+}
+
+.vgbnd-group-toolbar button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85em;
+}
+
+/* ── Character list (group content) ──────────────────────── */
+
+.vgbnd-char-list {
+  overflow-y: auto;
+  flex: 1;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vgbnd-char-row {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 8px 5px 5px;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, currentColor 12%, transparent);
+  background: color-mix(in srgb, currentColor 3%, transparent);
+  transition:
+    border-color 0.12s,
+    background 0.12s;
+}
+
+.vgbnd-char-row:hover {
+  border-color: color-mix(in srgb, currentColor 26%, transparent);
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.vgbnd-row-portrait {
+  width: 52px;
+  height: 52px;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center top;
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+  flex-shrink: 0;
+}
+
+.vgbnd-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.vgbnd-row-name {
+  font-weight: bold;
+  font-size: 0.95em;
+  color: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vgbnd-row-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  min-width: 0;
+}
+
+.vgbnd-row-subtitle {
+  font-size: 0.78em;
+  color: inherit;
+  opacity: 0.65;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+  text-transform: capitalize;
+}
+
+.vgbnd-row-player {
+  font-size: 0.72em;
+  color: inherit;
+  opacity: 0.5;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.vgbnd-row-import {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  font-size: 0.82em;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  background: transparent;
+  transition: background 0.12s;
+}
+
+.vgbnd-row-import:hover:not(:disabled) {
+  background: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+.vgbnd-row-import:disabled {
+  opacity: 0.5;
+  cursor: default;
 }

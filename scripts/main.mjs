@@ -1,28 +1,37 @@
-import { VgbndImportDialog } from "./import-dialog.mjs";
+import { VgbndBrowserDialog }    from "./browser-dialog.mjs";
 import { VgbndUnresolvedDialog } from "./unresolved-dialog.mjs";
-import { VgbndSpellDialog } from "./spell-dialog.mjs";
-import { VgbndMapper } from "./mapper.mjs";
+import { VgbndSpellDialog }      from "./spell-dialog.mjs";
+import { VgbndMapper }           from "./mapper.mjs";
+import { VgbndFirebase }         from "./firebase.mjs";
 
 // Re-export for external use / debugging
-export { VgbndImportDialog, VgbndUnresolvedDialog, VgbndSpellDialog, VgbndMapper };
+export { VgbndBrowserDialog, VgbndUnresolvedDialog, VgbndSpellDialog, VgbndMapper, VgbndFirebase };
 
 Hooks.once("init", () => {
   console.log("vgbnd-importer | Initialised");
+
+  // Store Firebase session per-client (not synced to other players)
+  game.settings.register("vgbnd-importer", "firebase-session", {
+    scope:   "client",
+    config:  false,
+    type:    String,
+    default: "",
+  });
 });
 
 Hooks.on("renderActorDirectory", (_app, html, _data) => {
-  const btn = document.createElement("button");
-  btn.type = "button";
-  btn.classList.add("vgbnd-import-btn");
-  btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-down"></i> ${game.i18n.localize("VGBND.SidebarButton")}`;
-  btn.addEventListener("click", () => new VgbndImportDialog().render(true));
-
-  // html may be a jQuery object (v13) or a plain HTMLElement (v14)
   const root = html instanceof HTMLElement ? html : html[0];
   if (!root) return;
 
   const target = root.querySelector(".directory-footer")
     ?? root.querySelector("footer")
     ?? root.querySelector(".header-actions");
-  if (target) target.prepend(btn);
+  if (!target) return;
+
+  const browseBtn = document.createElement("button");
+  browseBtn.type = "button";
+  browseBtn.classList.add("vgbnd-import-btn");
+  browseBtn.innerHTML = `<i class="fa-solid fa-users"></i> ${game.i18n.localize("VGBND.SidebarBrowseButton")}`;
+  browseBtn.addEventListener("click", () => new VgbndBrowserDialog().render(true));
+  target.prepend(browseBtn);
 });
