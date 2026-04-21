@@ -26,19 +26,11 @@ Switch to the **Group** tab to see groups you belong to. Select a group to brows
 
 ## What Gets Imported
 
-- Stats, health, mana, skills, saves, currency
+- Stats, health, mana, skills, saves, spells, currency...
 - All items resolved from the Vagabond compendiums (ancestry, class, perks, equipment)
-- Weapons and armor are auto-equipped
+- Weapons, spells, items and armor are auto-equipped
 
 Items that don't match any compendium entry exactly open a **resolution dialog** where you can search by partial name and add the correct item, or create a blank one to fill in manually.
-
----
-
-## Spellcasters
-
-If the character's class or ancestry is marked as a spellcaster, you'll be prompted to pick spells from the compendium after import. The dialog shows how many spells the character should have for their level (e.g. `0 / 4`).
-
-> **Note:** The vgbnd.app API does not export spells yet. This is a manual step until that changes.
 
 ---
 
