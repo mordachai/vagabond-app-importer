@@ -54,11 +54,22 @@ export class VgbndMapper {
 
     const img = raw.img ?? "icons/svg/mystery-man.svg";
 
+    const prototypeToken = { texture: { src: img } };
+    if (game.settings.get("vgbnd-importer", "dynamic-token-rings")) {
+      const ringColor    = game.user.color?.toString() ?? "#ffffff";
+      const subjectScale = game.settings.get("vgbnd-importer", "dtr-subject-scale");
+      prototypeToken.ring = {
+        enabled: true,
+        subject: { texture: raw.subjectTexture ?? img, scale: subjectScale },
+        colors:  { ring: ringColor },
+      };
+    }
+
     const actorData = {
       name:   raw.name ?? "Unnamed Character",
       type:   raw.type ?? "character",
       img,
-      prototypeToken: { texture: { src: img } },
+      prototypeToken,
       system: this.#mapSystem(raw.system ?? {}),
       items,
     };
@@ -81,7 +92,7 @@ export class VgbndMapper {
         this.#applyOverrides(itemData, apiItem, focusSpellIds);
         resolved.push(itemData);
       } else {
-        unresolved.push({ name: apiItem.name, type: apiItem.type });
+        unresolved.push({ name: apiItem.name, type: apiItem.type, system: apiItem.system });
         console.warn(`vgbnd-importer | "${apiItem.name}" (${apiItem.type}) — no compendium match, skipping.`);
         // We intentionally do NOT push a fallback item — unresolved are reported to the GM
       }
@@ -189,17 +200,19 @@ export class VgbndMapper {
       foundry.utils.setProperty(itemData, "system.quantity", apiItem.system.quantity);
     }
 
-    // ── Auto-equip weapons and armor ──────────────────────
+    // ── Equip: honour explicit flag from source data, fall back to type heuristic ──
     if (apiItem.type === "equipment") {
-      const eqType = sys.equipmentType ?? "";
-      if (this.#AUTO_EQUIP_TYPES.has(eqType)) {
-        foundry.utils.setProperty(itemData, "system.equipped", true);
-      }
+      const shouldEquip = apiItem.system?.equipped
+        ?? this.#AUTO_EQUIP_TYPES.has(sys.equipmentType ?? "");
+      if (shouldEquip) foundry.utils.setProperty(itemData, "system.equipped", true);
     }
 
-    // ── Auto-equip focus spells ────────────────────────────
-    // The API may pass focusSpellIds as the vgbnd internal IDs.
-    // If the API instead marks spells differently, adapt this check.
+    // ── Spells: favorite so they appear on the front of the sheet ──────────────
+    if (apiItem.type === "spell") {
+      foundry.utils.setProperty(itemData, "system.favorite", true);
+    }
+
+    // ── Auto-equip focus spells ────────────────────────────────────────────────
     if (apiItem.type === "spell" && focusSpellIds.includes(apiItem.id)) {
       foundry.utils.setProperty(itemData, "system.focus", true);
     }

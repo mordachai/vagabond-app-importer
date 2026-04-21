@@ -71,7 +71,12 @@ export class VgbndUnresolvedDialog extends HandlebarsApplicationMixin(Applicatio
     const doc = await pack.getDocument(docId);
     if (!doc) return;
 
-    await this.#actor.createEmbeddedDocuments("Item", [doc.toObject()]);
+    const itemData   = doc.toObject();
+    const origSystem = this.#items[Number(itemIndex)]?.system;
+    if (origSystem?.quantity !== undefined) foundry.utils.setProperty(itemData, "system.quantity", origSystem.quantity);
+    if (origSystem?.equipped)               foundry.utils.setProperty(itemData, "system.equipped", true);
+
+    await this.#actor.createEmbeddedDocuments("Item", [itemData]);
     this.#markResolved(itemIndex, doc.name);
   }
 

@@ -1,7 +1,6 @@
-import { VgbndFirebase }       from "./firebase.mjs";
+import { VgbndFirebase }        from "./firebase.mjs";
 import { VgbndMapper }          from "./mapper.mjs";
 import { VgbndUnresolvedDialog } from "./unresolved-dialog.mjs";
-import { VgbndSpellDialog }     from "./spell-dialog.mjs";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -265,6 +264,7 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
   // ── Firestore → mapper-compatible format ────────────────────────────────────
 
   static async #fromFirestore(uuid, fs) {
+    // console.log("vgbnd-importer | raw Firestore document:", JSON.parse(JSON.stringify(fs)));
     const items = [];
 
     // Ancestry & class resolved by name from compendiums
@@ -276,37 +276,58 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
       if (p.name) items.push({ name: p.name, type: "perk" });
     }
 
+    // Known spells + ancestry bonus spell
+    for (const spellName of (fs.known_spells ?? [])) {
+      if (spellName) items.push({ name: spellName, type: "spell" });
+    }
+    if (fs.ancestry_bonus_spell) items.push({ name: fs.ancestry_bonus_spell, type: "spell" });
+
     // Inventory → equipment (mapper resolves from weapon/armor/gear packs)
     for (const inv of (fs.inventory ?? [])) {
       if (!inv.name) continue;
-      items.push({ name: inv.name, type: "equipment", system: { quantity: inv.quantity ?? 1 } });
+      items.push({
+        name:   inv.name,
+        type:   "equipment",
+        system: {
+          quantity: inv.quantity ?? 1,
+          ...(inv.is_equipped && { equipped: true }),
+        },
+      });
     }
 
     // Portrait — upload to Foundry's file system so it's a proper URL, not a db blob
-    const img = await VgbndBrowserDialog.#uploadPortrait(uuid, fs.character_image_base64)
+    const charName = VgbndBrowserDialog.#sanitizeFilename(fs.name);
+    const img = await VgbndBrowserDialog.#uploadPortrait(charName, fs.character_image_base64)
               ?? "icons/svg/mystery-man.svg";
 
-    // Stats: assignedStats keys match Foundry system stat names exactly
+    // Stats: assignedStats + levelStats bonuses (e.g. stat points gained on level-up)
     const statsObj = {};
-    const src = fs.assignedStats ?? {};
+    const src      = fs.assignedStats ?? {};
+    const lvlStats = fs.levelStats    ?? {};
     for (const stat of ["might", "dexterity", "awareness", "reason", "presence", "luck"]) {
-      if (src[stat] != null) statsObj[stat] = { value: src[stat] };
+      const base  = src[stat]      ?? null;
+      const bonus = lvlStats[stat] ?? 0;
+      if (base != null) statsObj[stat] = { value: base + bonus };
     }
 
-    // Skills: trained_skills — log raw value to confirm format, then map
+    // Skills: trained_skills + ancestry_bonus_skill
     const skillsObj = {};
     for (const sk of (fs.trained_skills ?? [])) {
       const name = (typeof sk === "string" ? sk : (sk?.name ?? sk?.skill ?? null))?.toLowerCase();
       if (name) skillsObj[name] = { trained: true };
     }
+    if (fs.ancestry_bonus_skill) skillsObj[fs.ancestry_bonus_skill.toLowerCase()] = { trained: true };
 
-    // Currency — current_wealth may be a {gold,silver,copper} map or separate fields
+    // Currency — current_wealth uses {g,s,c} short keys or {gold,silver,copper} long keys
     const currency = {};
     const cw = fs.current_wealth;
     if (cw != null && typeof cw === "object") {
-      if (cw.gold   != null) currency.gold   = cw.gold;
-      if (cw.silver != null) currency.silver = cw.silver;
-      if (cw.copper != null) currency.copper = cw.copper;
+      const g = cw.gold   ?? cw.g;
+      const s = cw.silver ?? cw.s;
+      const c = cw.copper ?? cw.c;
+      if (g != null) currency.gold   = g;
+      if (s != null) currency.silver = s;
+      if (c != null) currency.copper = c;
     } else {
       if (fs.gold   != null) currency.gold   = fs.gold;
       if (fs.silver != null) currency.silver = fs.silver;
@@ -314,7 +335,10 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
     }
 
     const system = {
-      attributes: { level: { value: fs.level ?? 1 } },
+      attributes: {
+        level: { value: fs.level ?? 1 },
+        ...(fs.xp != null && { xp: fs.xp }),
+      },
       details:    { builderDismissed: true },
       ...(Object.keys(statsObj).length  && { stats:    statsObj }),
       ...(Object.keys(skillsObj).length && { skills:   skillsObj }),
@@ -324,14 +348,19 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
       ...(fs.current_luck != null && { currentLuck: fs.current_luck }),
     };
 
-    return { name: fs.name ?? "Unknown", type: "character", img, items, system };
+    let subjectTexture = null;
+    if (game.settings.get("vgbnd-importer", "dynamic-token-rings")) {
+      const subjectScale = game.settings.get("vgbnd-importer", "dtr-subject-scale");
+      subjectTexture = await VgbndBrowserDialog.#createSubjectTexture(charName, fs.character_image_base64, subjectScale);
+    }
+
+    return { name: fs.name ?? "Unknown", type: "character", img, items, system, subjectTexture };
   }
 
-  static async #uploadPortrait(uuid, base64) {
+  static async #uploadPortrait(charName, base64) {
     if (!base64?.startsWith("data:")) return null;
     try {
       const folder = "assets/vagabond/portraits";
-      // Create each path segment; ignore errors (directory may already exist)
       const FP = foundry.applications.apps.FilePicker.implementation;
       for (const path of ["assets", "assets/vagabond", folder]) {
         try { await FP.createDirectory("data", path, {}); } catch { /* exists */ }
@@ -342,8 +371,8 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
       const bytes = atob(data);
       const arr   = new Uint8Array(bytes.length);
       for (let i = 0; i < bytes.length; i++) arr[i] = bytes.charCodeAt(i);
-      const file = new File([arr], `${uuid}.${ext}`, { type: mime });
-      const res  = await FP.upload("data", folder, file, { notify: false });
+      const file = new File([arr], `${charName}.${ext}`, { type: mime });
+      const res  = await FP.upload("data", folder, file, {}, { notify: false });
       return res?.path ?? null;
     } catch (err) {
       console.warn("vgbnd-importer | Portrait upload failed:", err.message);
@@ -351,8 +380,59 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
     }
   }
 
+  // Produces a 512×512 WebP with the portrait circle-cropped so that after DTR
+  // applies subject.scale the portrait edge aligns exactly with the ring boundary.
+  static async #createSubjectTexture(charName, base64, scale = 1) {
+    if (!base64?.startsWith("data:")) return null;
+    try {
+      const img = await new Promise((resolve, reject) => {
+        const el = new Image();
+        el.onload  = () => resolve(el);
+        el.onerror = reject;
+        el.src = base64;
+      });
+
+      const size   = 512;
+      const cx     = size / 2;
+      // Ring starts at ⅔ of the token radius. DTR will scale the texture by `scale`,
+      // so we pre-compensate: make the crop circle larger so scale × cropRadius = ⅔ × cx.
+      const radius = Math.min(cx, cx * (2 / 3) / scale);
+
+      const canvas = document.createElement("canvas");
+      canvas.width  = size;
+      canvas.height = size;
+      const ctx = canvas.getContext("2d");
+
+      ctx.beginPath();
+      ctx.arc(cx, cx, radius, 0, Math.PI * 2);
+      ctx.clip();
+
+      // Cover: scale portrait to fill the circle, centred
+      const d         = radius * 2;
+      const drawScale = Math.max(d / img.width, d / img.height);
+      const sw        = img.width  * drawScale;
+      const sh        = img.height * drawScale;
+      ctx.drawImage(img, cx - sw / 2, cx - sh / 2, sw, sh);
+
+      const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/webp", 0.9));
+      const file = new File([blob], `${charName}_subject.webp`, { type: "image/webp" });
+
+      const folder = "assets/vagabond/portraits";
+      const FP  = foundry.applications.apps.FilePicker.implementation;
+      const res = await FP.upload("data", folder, file, {}, { notify: false });
+      return res?.path ?? null;
+    } catch (err) {
+      console.warn("vgbnd-importer | Subject texture creation failed:", err.message);
+      return null;
+    }
+  }
+
   static #titleCase(str) {
     return str?.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()) ?? str;
+  }
+
+  static #sanitizeFilename(name) {
+    return (name ?? "unknown").trim().replace(/[^\w\s-]/g, "").replace(/\s+/g, "_") || "unknown";
   }
 
   static async #createActor(raw) {
@@ -372,34 +452,10 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
       return;
     }
 
-    actor?.sheet?.render(true);
-
-    // Wait for unresolved items to be handled before continuing
     if (unresolved.length) {
       const dlg = new VgbndUnresolvedDialog(actor, unresolved);
       dlg.render(true);
       await dlg.closed;
-    }
-
-    // Wait for spell selection before continuing to the next character
-    const classItem    = actor.items.find(i => i.type === "class");
-    const ancestryItem = actor.items.find(i => i.type === "ancestry");
-    const isSpellcaster = classItem?.system?.isSpellcaster === true
-                       || ancestryItem?.system?.isSpellcaster === true;
-    if (isSpellcaster) {
-      const level      = actor.system?.attributes?.level?.value ?? 1;
-      const spellCount = classItem?.system?.isSpellcaster
-        ? (classItem.system?.levelSpells?.find(ls => ls.level === level)?.spells ?? null)
-        : null;
-      const proceed = await foundry.applications.api.DialogV2.confirm({
-        window:  { title: game.i18n.localize("VGBND.SpellPromptTitle") },
-        content: `<p>${game.i18n.localize("VGBND.SpellPromptBody")}</p>`,
-      });
-      if (proceed) {
-        const dlg = new VgbndSpellDialog(actor, spellCount);
-        dlg.render(true);
-        await dlg.closed;
-      }
     }
   }
 }

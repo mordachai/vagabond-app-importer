@@ -1,12 +1,10 @@
 {
+  "VGBND.SettingDTRName": "Dynamic Token Rings",
+  "VGBND.SettingDTRHint": "When enabled, imported characters will use Foundry's Dynamic Token Ring, with the ring colour set to the importing user's player colour.",
+  "VGBND.SettingDTRScaleName": "DTR Subject Scale",
+  "VGBND.SettingDTRScaleHint": "Scale of the character portrait inside the Dynamic Token Ring. 1.0 fills the inner area; lower values shrink the portrait away from the ring edge.",
+
   "VGBND.ErrorCreate": "Failed to create actor: {error}",
-  "VGBND.SpellTitle": "Add Spells",
-  "VGBND.SpellPromptTitle": "Import Spells?",
-  "VGBND.SpellPromptBody": "This character is a spellcaster. Would you like to pick spells from the compendium?<br><em style='font-size:0.85em;opacity:0.7'>Provisional — spell export from the Vagabond app is not yet supported by the API.</em>",
-  "VGBND.SpellNote": "Select the spells your character knows. Spell export from the Vagabond app is not yet available in the API.",
-  "VGBND.SpellSearch": "Filter spells…",
-  "VGBND.SpellPackMissing": "Could not find the vagabond.spells compendium pack.",
-  "VGBND.SpellFinish": "Finished",
   "VGBND.UnresolvedTitle": "Items Not Found in Compendiums",
   "VGBND.UnresolvedSearch": "These items had no exact compendium match. Search for them below, or create a blank item to fill in manually.",
   "VGBND.Search": "Search",
