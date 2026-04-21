@@ -32,6 +32,8 @@
   "VGBND.Loading": "Loading…",
   "VGBND.Import": "Import",
   "VGBND.ImportAll": "Import All",
+  "VGBND.SelectAll": "Select All",
+  "VGBND.ImportSelected": "Import Selected",
   "VGBND.Updated": "Updated",
   "VGBND.Members": "members",
   "VGBND.UnknownCharacter": "Unknown",

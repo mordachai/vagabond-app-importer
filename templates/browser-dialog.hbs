@@ -64,10 +64,23 @@
           <i class="fa-solid fa-spinner fa-spin"></i> {{localize "VGBND.Loading"}}
         </div>
       {{else if characters.length}}
+        <div class="vgbnd-mine-toolbar">
+          <label class="vgbnd-select-all-label">
+            <input type="checkbox" class="vgbnd-select-all" {{#if allSelected}}checked{{/if}}>
+            {{localize "VGBND.SelectAll"}}
+          </label>
+          <button type="button" data-action="importSelected" class="vgbnd-import-selected-btn"
+                  {{#unless anySelected}}disabled{{/unless}}>
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+            {{localize "VGBND.ImportSelected"}}{{#if anySelected}} ({{selectedCount}}){{/if}}
+          </button>
+        </div>
         <div class="vgbnd-char-grid">
           {{#each characters}}
-          <div class="vgbnd-char-card">
-            <div class="vgbnd-card-portrait" style="background-image: url('{{portrait}}')"></div>
+          <div class="vgbnd-char-card{{#if selected}} vgbnd-card-selected{{/if}}">
+            <div class="vgbnd-card-portrait" style="background-image: url('{{portrait}}')">
+              <input type="checkbox" class="vgbnd-card-check" data-uuid="{{id}}" {{#if selected}}checked{{/if}}>
+            </div>
             <div class="vgbnd-card-body">
               <div class="vgbnd-card-name">{{name}}</div>
               {{#if summary}}<div class="vgbnd-card-subtitle">{{summary}}</div>{{/if}}

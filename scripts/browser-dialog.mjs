@@ -17,8 +17,9 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
       refresh:     VgbndBrowserDialog.#onRefresh,
       switchTab:   VgbndBrowserDialog.#onSwitchTab,
       selectGroup: VgbndBrowserDialog.#onSelectGroup,
-      importChar:  VgbndBrowserDialog.#onImportChar,
-      importGroup: VgbndBrowserDialog.#onImportGroup,
+      importChar:     VgbndBrowserDialog.#onImportChar,
+      importGroup:    VgbndBrowserDialog.#onImportGroup,
+      importSelected: VgbndBrowserDialog.#onImportSelected,
     },
   };
 
@@ -28,15 +29,16 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
 
   // ── State ──────────────────────────────────────────────────────────────────
 
-  #view           = "login"; // "login" | "browser"
-  #tab            = "mine";  // "mine"  | "group"
-  #characters     = [];
-  #groups         = [];
-  #selectedGrpId  = null;
-  #groupChars     = [];
-  #error          = "";
-  #loading        = false;
-  #initDone       = false;   // guard so _onRender only auto-loads once
+  #view             = "login"; // "login" | "browser"
+  #tab              = "mine";  // "mine"  | "group"
+  #characters       = [];
+  #groups           = [];
+  #selectedGrpId    = null;
+  #groupChars       = [];
+  #error            = "";
+  #loading          = false;
+  #initDone         = false;   // guard so _onRender only auto-loads once
+  #selectedCharIds  = new Set();
 
   // ── Lifecycle ──────────────────────────────────────────────────────────────
 
@@ -45,6 +47,11 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
 
     const selGroup = this.#groups.find(g => g.id === this.#selectedGrpId) ?? null;
 
+    const fmtChars = this.#fmt(this.#characters).map(c => ({
+      ...c,
+      selected: this.#selectedCharIds.has(c.id),
+    }));
+
     return {
       isLogin:   this.#view === "login",
       isBrowser: this.#view === "browser",
@@ -52,11 +59,14 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
       isGroup:   this.#tab === "group",
       loading:   this.#loading,
       error:     this.#error,
-      characters:  this.#fmt(this.#characters),
-      groups:      this.#groups.map(g => ({ ...g, isSelected: g.id === this.#selectedGrpId })),
-      selectedGroup:  selGroup,
-      groupChars:  this.#fmt(this.#groupChars),
-      isGM:   game.user?.isGM ?? false,
+      characters:    fmtChars,
+      groups:        this.#groups.map(g => ({ ...g, isSelected: g.id === this.#selectedGrpId })),
+      selectedGroup: selGroup,
+      groupChars:    this.#fmt(this.#groupChars),
+      isGM:          game.user?.isGM ?? false,
+      anySelected:   this.#selectedCharIds.size > 0,
+      allSelected:   this.#selectedCharIds.size > 0 && this.#selectedCharIds.size === this.#characters.length,
+      selectedCount: this.#selectedCharIds.size,
     };
   }
 
@@ -64,6 +74,27 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
     if (!this.#initDone && this.#view === "browser" && !this.#loading) {
       this.#initDone = true;
       this.#loadMyData();
+    }
+
+    // Card checkboxes
+    this.element.querySelectorAll(".vgbnd-card-check").forEach(cb => {
+      cb.addEventListener("change", e => {
+        const uuid = e.currentTarget.dataset.uuid;
+        if (e.currentTarget.checked) this.#selectedCharIds.add(uuid);
+        else this.#selectedCharIds.delete(uuid);
+        this.render();
+      });
+    });
+
+    // Select-all checkbox
+    const selectAll = this.element.querySelector(".vgbnd-select-all");
+    if (selectAll) {
+      selectAll.indeterminate = this.#selectedCharIds.size > 0 && this.#selectedCharIds.size < this.#characters.length;
+      selectAll.addEventListener("change", e => {
+        if (e.currentTarget.checked) this.#characters.forEach(c => this.#selectedCharIds.add(c.id));
+        else this.#selectedCharIds.clear();
+        this.render();
+      });
     }
   }
 
@@ -139,15 +170,16 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
 
   static #onSignOut() {
     VgbndFirebase.signOut();
-    this.#view          = "login";
-    this.#tab           = "mine";
-    this.#characters    = [];
-    this.#groups        = [];
-    this.#selectedGrpId = null;
-    this.#groupChars    = [];
-    this.#error         = "";
-    this.#loading       = false;
-    this.#initDone      = false;
+    this.#view            = "login";
+    this.#tab             = "mine";
+    this.#characters      = [];
+    this.#groups          = [];
+    this.#selectedGrpId   = null;
+    this.#groupChars      = [];
+    this.#error           = "";
+    this.#loading         = false;
+    this.#initDone        = false;
+    this.#selectedCharIds.clear();
     this.render();
   }
 
@@ -157,12 +189,13 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
   }
 
   static async #onRefresh() {
-    this.#characters    = [];
-    this.#groups        = [];
-    this.#groupChars    = [];
-    this.#selectedGrpId = null;
-    this.#error         = "";
-    this.#initDone      = false;
+    this.#characters      = [];
+    this.#groups          = [];
+    this.#groupChars      = [];
+    this.#selectedGrpId   = null;
+    this.#error           = "";
+    this.#initDone        = false;
+    this.#selectedCharIds.clear();
     await this.#loadMyData();
   }
 
@@ -227,6 +260,14 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
     const chars = this.#groupChars;
     if (!chars.length) return;
     for (const c of chars) await VgbndBrowserDialog.#importByUuid(c.id);
+  }
+
+  static async #onImportSelected() {
+    const ids = [...this.#selectedCharIds];
+    if (!ids.length) return;
+    this.#selectedCharIds.clear();
+    this.render();
+    for (const id of ids) await VgbndBrowserDialog.#importByUuid(id);
   }
 
   // ── Core import ─────────────────────────────────────────────────────────────
