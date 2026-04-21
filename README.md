@@ -10,7 +10,9 @@
 
 ---
 
-## How to Use (<a href="https://www.youtube.com/watch?v=hMbYEKtBhmk" target="_blank">Video Here</a>)
+## How to Use (video below):
+
+https://github.com/user-attachments/assets/9aef8c9a-0660-45e9-8fd5-b5bbda862604
 
 1. Open the **Actors** sidebar tab — click **Browse Vagabond Tag Along** at the bottom
 2. Sign in with your [Vagabond Tag Along](https://www.vgbnd.app) account (email + password)
