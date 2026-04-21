@@ -1,6 +1,9 @@
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W01A1ZN1)
 
-![Foundry v13](https://img.shields.io/badge/foundry-v13%2B-green?style=for-the-badge) ![GitHub Release](https://img.shields.io/github/v/release/mordachai/vagabond-app-importer?display_name=tag&style=for-the-badge&label=Current%20version)
+![Foundry v13](https://img.shields.io/badge/foundry-v13%2B-green?style=for-the-badge)
+![GitHub Release](https://img.shields.io/github/v/release/mordachai/vagabond-app-importer?display_name=tag&style=for-the-badge&label=Current%20version)
+![GitHub Downloads](https://img.shields.io/github/downloads/mordachai/vagabond-app-importer/total?style=for-the-badge&label=Downloads)
+[![Forge Installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fvagabond-app-importer&color=bf360c&style=for-the-badge)](https://forge-vtt.com/bazaar/package/vagabond-app-importer)
 
 # Vagabond App Importer
 
@@ -40,6 +43,10 @@ Items that don't match any compendium entry exactly open a **resolution dialog**
 - [Vagabond system](https://github.com/FoundryVTT-Vagabond/vagabond) installed and active
 
 ## Installation
+
+Search for "vagabond" in Add-on Modules >> _Install Module_. Select _**Vagabond App Importer**_
+
+OR
 
 Search for **"vagabond app importer"** in Foundry's module browser, or use the manifest URL:
 
