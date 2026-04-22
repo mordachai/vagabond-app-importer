@@ -2,9 +2,10 @@ import { VgbndBrowserDialog }    from "./browser-dialog.mjs";
 import { VgbndUnresolvedDialog } from "./unresolved-dialog.mjs";
 import { VgbndMapper }           from "./mapper.mjs";
 import { VgbndFirebase }         from "./firebase.mjs";
+import { VgbndSync }             from "./sync.mjs";
 
 // Re-export for external use / debugging
-export { VgbndBrowserDialog, VgbndUnresolvedDialog, VgbndMapper, VgbndFirebase };
+export { VgbndBrowserDialog, VgbndUnresolvedDialog, VgbndMapper, VgbndFirebase, VgbndSync };
 
 Hooks.once("init", () => {
   console.log("vgbnd-importer | Initialised");
@@ -75,10 +76,29 @@ Hooks.on("renderActorDirectory", (_app, html, _data) => {
     ?? root.querySelector(".header-actions");
   if (!target) return;
 
+  const syncBtn = document.createElement("button");
+  syncBtn.type = "button";
+  syncBtn.classList.add("vgbnd-sync-btn");
+  syncBtn.innerHTML = `<i class="fa-solid fa-rotate-right"></i> ${game.i18n.localize("VGBND.SyncButton")}`;
+  syncBtn.addEventListener("click", async () => {
+    const actors = game.actors.filter(a => a.getFlag("vgbnd-importer", "firestoreId"));
+    if (!actors.length) { ui.notifications.warn(game.i18n.localize("VGBND.SyncNoneFound")); return; }
+    syncBtn.disabled = true;
+    const orig = syncBtn.innerHTML;
+    syncBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+    try {
+      for (const a of actors) await VgbndSync.syncActor(a);
+    } finally {
+      syncBtn.disabled = false;
+      syncBtn.innerHTML = orig;
+    }
+  });
+
   const browseBtn = document.createElement("button");
   browseBtn.type = "button";
   browseBtn.classList.add("vgbnd-import-btn");
   browseBtn.innerHTML = `<i class="fa-solid fa-users"></i> ${game.i18n.localize("VGBND.SidebarBrowseButton")}`;
   browseBtn.addEventListener("click", () => new VgbndBrowserDialog().render(true));
   target.prepend(browseBtn);
+  browseBtn.before(syncBtn);
 });

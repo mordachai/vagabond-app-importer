@@ -280,7 +280,7 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
         const fsData = await VgbndFirebase.getCharacter(tok.idToken, uuid);
         if (fsData.ancestry || fsData.class || fsData.inventory?.length) {
           const raw = await VgbndBrowserDialog.#fromFirestore(uuid, fsData);
-          return await VgbndBrowserDialog.#createActor(raw);
+          return await VgbndBrowserDialog.#createActor(raw, uuid, fsData.selected_perks ?? []);
         }
       } catch (err) {
         console.warn("vgbnd-importer | Firestore import error:", err.message);
@@ -476,7 +476,7 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
     return (name ?? "unknown").trim().replace(/[^\w\s-]/g, "").replace(/\s+/g, "_") || "unknown";
   }
 
-  static async #createActor(raw) {
+  static async #createActor(raw, firestoreId = null, fsPerks = []) {
     let actorData, unresolved;
     try {
       ({ actorData, unresolved } = await VgbndMapper.toActor(raw));
@@ -491,6 +491,21 @@ export class VgbndBrowserDialog extends HandlebarsApplicationMixin(ApplicationV2
     } catch (err) {
       ui.notifications.error(game.i18n.format("VGBND.ErrorCreate", { error: err.message }));
       return;
+    }
+
+    // Store Firestore link so we can sync back later
+    if (firestoreId) {
+      await actor.setFlag("vgbnd-importer", "firestoreId", firestoreId);
+    }
+
+    // Store original Firestore perk data on each perk item for round-trip sync
+    if (fsPerks.length) {
+      const perkMap = new Map(fsPerks.map(p => [p.name?.toLowerCase(), p]));
+      const perkItems = actor.items.filter(i => i.type === "perk");
+      for (const item of perkItems) {
+        const fsData = perkMap.get(item.name.toLowerCase());
+        if (fsData) await item.setFlag("vgbnd-importer", "firestoreData", fsData);
+      }
     }
 
     if (unresolved.length) {

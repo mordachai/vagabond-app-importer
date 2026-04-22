@@ -117,6 +117,17 @@ export class VgbndFirebase {
   }
 
   /** Fetch individual character documents by ID — uses GET not query, so group rules may apply. */
+  static async patchCharacter(idToken, charId, fields) {
+    const mask = Object.keys(fields).map(k => `updateMask.fieldPaths=${encodeURIComponent(k)}`).join("&");
+    const res = await fetch(`${FS_BASE}/characters/${charId}?${mask}`, {
+      method:  "PATCH",
+      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${idToken}` },
+      body:    JSON.stringify({ fields }),
+    });
+    if (!res.ok) throw new Error(`Firestore PATCH error: HTTP ${res.status}`);
+    return res.json();
+  }
+
   static async getGroupCharacters(idToken, characterIds) {
     if (!characterIds?.length) return [];
     const results = await Promise.allSettled(

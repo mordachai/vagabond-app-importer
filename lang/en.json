@@ -45,5 +45,14 @@
 
   "VGBND.Refresh": "Refresh",
   "VGBND.ImportedSuccess": "{name} imported successfully.",
-  "VGBND.ErrorCORSFallback": "Direct fetch blocked — opening in a new tab. Copy the JSON and use Import by UUID if needed."
+  "VGBND.ErrorCORSFallback": "Direct fetch blocked — opening in a new tab. Copy the JSON and use Import by UUID if needed.",
+
+  "VGBND.SyncButton": "Sync to VTA",
+  "VGBND.SyncNoneFound": "No Vagabond-imported actors found in this world.",
+  "VGBND.SyncTooltip": "Push current character state back to Vagabond Tag Along",
+  "VGBND.SyncNotImported": "This actor was not imported from Vagabond Tag Along — cannot sync.",
+  "VGBND.SyncNotSignedIn": "Not signed in to Vagabond Tag Along. Open the browser dialog and sign in first.",
+  "VGBND.SyncErrorFetch": "Could not read character from Vagabond: {error}",
+  "VGBND.SyncSuccess": "{name} synced to Vagabond Tag Along.",
+  "VGBND.SyncError": "Sync failed: {error}"
 }
