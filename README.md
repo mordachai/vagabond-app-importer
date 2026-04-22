@@ -25,6 +25,10 @@ https://github.com/user-attachments/assets/9aef8c9a-0660-45e9-8fd5-b5bbda862604
 
 Switch to the **Group** tab to see groups you belong to. Select a group to browse all member characters and import them individually. GMs get an **Import All** button to pull in every character in the group at once.
 
+### Sync to VTA
+
+Any change you make to the characters in Foundry will be send back to the app. It syncs all imported characters. If you want to keep a "original one" I suggest you duplicate the char and play with the imported copy.
+
 ---
 
 ## What Gets Imported
