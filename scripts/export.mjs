@@ -179,16 +179,18 @@ export async function exportActorToPdf(actor) {
     _setText(form, "Wealth (c)", sys.currency?.copper ?? "");
 
     // Weapons (up to 3 equipped)
-    const equippedWeapons = actor.items.filter(
-      i => i.type === "equipment" && i.system?.equipmentType === "weapon" && i.system?.equipped
-    );
+    const isWeapon = i => (i.type === "weapon") ||
+      (i.type === "equipment" && i.system?.equipmentType === "weapon");
+    const equippedWeapons = actor.items.filter(i => isWeapon(i) && i.system?.equipped);
     for (let w = 0; w < 3; w++) {
       const idx    = w + 1;
       const weapon = equippedWeapons[w];
       if (weapon) {
         _setText(form, `Weapon ${idx}`, weapon.name);
-        const isTwoHand = weapon.system.equipmentState === "twoHands";
-        const dmg       = isTwoHand ? weapon.system.damageTwoHands : weapon.system.damageOneHand;
+        const isTwoHand = weapon.system.equipmentState === "twoHands" || weapon.system.hands === 2;
+        const dmg       = isTwoHand
+          ? (weapon.system.damageTwoHands ?? weapon.system.damage ?? "")
+          : (weapon.system.damageOneHand  ?? weapon.system.damage ?? "");
         _setText(form, `Weapon Damage ${idx}`, dmg || "");
         const props = Array.isArray(weapon.system.properties) ? weapon.system.properties.join(", ") : "";
         _setText(form, `Weapon Properties ${idx}`, props);
@@ -201,8 +203,8 @@ export async function exportActorToPdf(actor) {
       }
     }
 
-    // Inventory (stacked — duplicates merged into "Name x N"; weapons excluded, they have their own section)
-    const equipment = actor.items.filter(i => i.type === "equipment" && i.system?.equipmentType !== "weapon");
+    // Inventory (stacked — duplicates merged into "Name x N"; weapons included alongside other gear)
+    const equipment = actor.items.filter(i => i.type === "equipment" || i.type === "weapon");
     const groupMap  = new Map();
     for (const item of equipment) {
       const bs  = item.system?.baseSlots;

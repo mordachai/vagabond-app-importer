@@ -95,7 +95,7 @@ export class VgbndSync {
     const fsItems = existingDoc.inventory ?? [];
     const fsMap = new Map(fsItems.map(item => [item.name?.toLowerCase(), item]));
 
-    const foundryItems = actor.items.filter(i => i.type === "equipment");
+    const foundryItems = actor.items.filter(i => ["equipment", "weapon", "armor"].includes(i.type));
     const seen = new Set();
     const result = [];
 
