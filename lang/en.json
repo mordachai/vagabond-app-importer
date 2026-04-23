@@ -54,5 +54,17 @@
   "VGBND.SyncNotSignedIn": "Not signed in to Vagabond Tag Along. Open the browser dialog and sign in first.",
   "VGBND.SyncErrorFetch": "Could not read character from Vagabond: {error}",
   "VGBND.SyncSuccess": "{name} synced to Vagabond Tag Along.",
-  "VGBND.SyncError": "Sync failed: {error}"
+  "VGBND.SyncError": "Sync failed: {error}",
+
+  "VGBND.SettingExportTemplateName": "PDF Export Template",
+  "VGBND.SettingExportTemplateHint": "Choose between the dark or light hero record sheet.",
+  "VGBND.SettingExportTemplateInteractive": "Interactive (Dark)",
+  "VGBND.SettingExportTemplateInteractiveLight": "Interactive (Light)",
+  "VGBND.SettingExportFolderName": "PDF Export Folder",
+  "VGBND.SettingExportFolderHint": "Firefox fallback only — a Save As dialog is used on all other browsers. Sets the folder inside your Foundry data directory where PDFs are saved when the dialog is unavailable.",
+  "VGBND.ExportButtonTooltip": "Export to PDF",
+  "VGBND.ExportStarting": "Exporting {name} to PDF…",
+  "VGBND.ExportSuccess": "Exported \"{name}\" → {path}",
+  "VGBND.ExportErrorNotCharacter": "Please select a character actor to export.",
+  "VGBND.ExportErrorFailed": "PDF Export failed: {error}"
 }

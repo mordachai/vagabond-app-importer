@@ -73,7 +73,8 @@ jobs:
             scripts/ \
             styles/ \
             templates/ \
-            lang/
+            lang/ \
+            pdf/
 
           ls -lh module.zip
           echo "Contents of module.zip:"
